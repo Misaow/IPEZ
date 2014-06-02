@@ -25,7 +25,7 @@ class Client extends Database {
      /**
      * @var Database
      */
-    protected $db;
+    protected $db  ;
 
     /**
      * Constructeur du client
@@ -34,18 +34,23 @@ class Client extends Database {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
-        
+        $this->db = new \app\core\Database();
         $this->db->connect();
     }
     
 
     public function getClients(){
-        $this->db->select('TClient');
+        $this->db = new \app\core\Database();
+        $this->db->select('tclient');
+        return $this->db->getResult();
+        
     }
     
-     public function addClient($mail, $nom, $prenom, $mdp, $newsletter = '0'){
-         $array = array($mail, $nom, $prenom, $mdp, $newletter);
-        $this->db->insert('TClient', $array);
+     public function addClient(Client $client){
+         
+
+        $req = $this->db->insert('tclient', $client->getDonnees());
+        return $req;
     }
     
    /**
@@ -59,7 +64,7 @@ class Client extends Database {
             'prenom' => $this->getPrenom(),
             'newsletter' =>  $this->getNewsletter(),
             'mdp' => $this->getMdp(),
-            
+
         );
         return $this;
     }

@@ -1,4 +1,6 @@
 <?php
+namespace app\core;
+
 $webroot= explode("/", $_SERVER['SCRIPT_NAME']);
 
 define( '__APP', true );
