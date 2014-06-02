@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "pass": "",
+    "dbname": "ipez",
+    "prefix": "db_"
+}
