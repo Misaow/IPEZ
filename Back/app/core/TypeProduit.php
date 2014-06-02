@@ -67,7 +67,7 @@ class TypeProduit {
 
     /**
      * Set le Tableau $donnees pour l'update en base
-     * @return \app\core\Produit
+     * @return \app\core\TypeProduit
      */
     public function setDonneesUp() {
         $this->donnees = array(
@@ -80,7 +80,7 @@ class TypeProduit {
     
     /**
      * 
-     * @return type
+     * @return type $id
      */
     public function getId() {
         return $this->id;
@@ -88,7 +88,7 @@ class TypeProduit {
     
     /**
      * 
-     * @return type
+     * @return type $nom
      */
     public function getNom() {
         return $this->nom;
@@ -96,7 +96,7 @@ class TypeProduit {
 
        /**
         * 
-        * @return type
+        * @return type $description
         */
     public function getDescription() {
         return $this->description;

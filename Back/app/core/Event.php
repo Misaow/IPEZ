@@ -16,8 +16,16 @@ class Event {
     private $lieu;
     
 
+    
+     /**
+     *
+     * @var array
+     */
+    
+    private $donnees = array();
+    
     /**
-     * Constructeur du client
+     * Constructeur de l'event
      * @param type $valeur
      */
     public function __construct($valeur = array()) {
@@ -28,7 +36,7 @@ class Event {
     
 
     /**
-     * Initialise les valeurs du client
+     * Initialise les valeurs de l'event
      * @param array $donnees
      */
     public function init(array $donnees) {
@@ -39,12 +47,52 @@ class Event {
                 $this->$method($value);
         }
         $this->setDonnees();
+    }    
+    
+      /**
+     * Set le Tableau $donnees pour l'insertion en base
+     * @return \app\core\Choix
+     */
+    public function setDonnees() {
+        $this->donnees = array(
+            'id' => '',
+            'nom'=> $this->getNom(),
+            'description'=> $this->getDescription(),
+            'date'=> $this->getDate(),
+            'heure'=> $this->getHeure(),     
+            'lieu'=> $this->getLieu()     
+             
+        );
+        return $this;
+    }
+    /**
+     * Retourne Donnees
+     * @return array
+     */
+    public function getDonnees() {
+        return $this->donnees;
+    }
+
+    /**
+     * Set le Tableau $donnees pour l'update en base
+     * @return \app\core\Event
+     */
+    public function setDonneesUp() {
+        $this->donnees = array(
+             'id' => $this->getId(),
+            'nom'=> $this->getNom(),
+            'description'=> $this->getDescription(),
+            'date'=> $this->getDate(),
+            'heure'=> $this->getHeure(),     
+            'lieu'=> $this->getLieu()   
+        );
+        return $this;
     }
     
     
     /**
      * 
-     * @return type
+     * @return type $id
      */
     public function getId() {
         return $this->id;
@@ -52,7 +100,7 @@ class Event {
 
     /**
      * 
-     * @return type
+     * @return type $nom
      */
     public function getNom() {
         return $this->nom;
@@ -60,7 +108,7 @@ class Event {
 
     /**
      * 
-     * @return type
+     * @return type $description
      */
     public function getDescription() {
         return $this->description;
@@ -68,7 +116,7 @@ class Event {
 
     /**
      * 
-     * @return type
+     * @return type $date
      */
     public function getDate() {
         return $this->date;
@@ -76,7 +124,7 @@ class Event {
 
     /**
      * 
-     * @return type
+     * @return type $heure
      */
     public function getHeure() {
         return $this->heure;
@@ -84,7 +132,7 @@ class Event {
 
     /**
      * 
-     * @return type
+     * @return type $lieu
      */
     public function getLieu() {
         return $this->lieu;

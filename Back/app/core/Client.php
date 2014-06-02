@@ -15,6 +15,13 @@ class Client {
     private $mdp;
     private $newsletter;
     
+     /**
+     *
+     * @var array
+     */
+    
+    private $donnees = array();
+    
 
     /**
      * Constructeur du client

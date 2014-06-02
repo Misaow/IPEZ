@@ -24,7 +24,7 @@ class Participation {
     
     
     /**
-     * Constructeur du client
+     * Constructeur de Produit
      * @param type $valeur
      */
     public function __construct($valeur = array()) {
@@ -35,7 +35,7 @@ class Participation {
     
 
     /**
-     * Initialise les valeurs du client
+     * Initialise les valeurs de Produit
      * @param array $donnees
      */
     public function init(array $donnees) {
@@ -90,7 +90,7 @@ class Participation {
     
     /**
      * 
-     * @return type
+     * @return type $id
      */
     public function getId() {
         return $this->id;
@@ -98,7 +98,7 @@ class Participation {
 
     /**
      * 
-     * @return type
+     * @return type $nom
      */
     public function getNom() {
         return $this->nom;
@@ -106,7 +106,7 @@ class Participation {
     
     /**
      * 
-     * @return type
+     * @return type $description
      */
     public function getDescription() {
         return $this->description;
@@ -114,7 +114,7 @@ class Participation {
 
     /**
      * 
-     * @return type
+     * @return type $nb_vente
      */
     public function getNb_vente() {
         return $this->nb_vente;
@@ -122,7 +122,7 @@ class Participation {
 
     /**
      * 
-     * @return type
+     * @return type $nb_stock
      */
     public function getNb_stock() {
         return $this->nb_stock;

@@ -11,8 +11,17 @@ class Participation {
     private $TClient_id;
     private $TEvent_id;
  
+    
+     /**
+     *
+     * @var array
+     */
+    
+    private $donnees = array();
+    
+    
     /**
-     * Constructeur du client
+     * Constructeur de Participation
      * @param type $valeur
      */
     public function __construct($valeur = array()) {
@@ -23,7 +32,7 @@ class Participation {
     
 
     /**
-     * Initialise les valeurs du client
+     * Initialise les valeurs de Participation
      * @param array $donnees
      */
     public function init(array $donnees) {
@@ -36,9 +45,46 @@ class Participation {
         $this->setDonnees();
     }
     
+    
+    
+      /**
+     * Set le Tableau $donnees pour l'insertion en base
+     * @return \app\core\Choix
+     */
+    public function setDonnees() {
+        $this->donnees = array(
+            'TClient_id' => $this->getTClient_id(),
+            'TEvent_id'=> $this->getTEvent_id()     
+             
+        );
+        return $this;
+    }
+    /**
+     * Retourne Donnees
+     * @return array
+     */
+    public function getDonnees() {
+        return $this->donnees;
+    }
+
+    /**
+     * Set le Tableau $donnees pour l'update en base
+     * @return \app\core\Participation
+     */
+    public function setDonneesUp() {
+        $this->donnees = array(
+             'TClient_id' => $this->getTClient_id(),
+            'TEvent_id'=> $this->getTEvent_id()      
+        );
+        return $this;
+    }
+    
+    
+    
+    
     /**
      * 
-     * @return type
+     * @return type $TClient_id
      */
     public function getTClient_id() {
         return $this->TClient_id;
@@ -46,7 +92,7 @@ class Participation {
 
     /**
      * 
-     * @return type
+     * @return type $TEvent_id
      */
     public function getTEvent_id() {
         return $this->TEvent_id;
