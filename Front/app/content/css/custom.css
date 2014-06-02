@@ -11,3 +11,280 @@ and open the template in the editor.
 img{
     max-width: 100%;
 }
+
+/*------------ Polices de caractères ------------*/
+//@font-face {
+//  font-family: 'Kaushan';
+//  src: url('../fonts/Kaushan.otf');
+//}
+
+
+/*------------ Elements de base ------------*/
+html {
+	width: 100%;
+	height: 100%;
+	background-color: #F5F5F5;
+	margin:0;
+	padding: 0;
+}
+
+body {
+	color: #333333;
+	position: absolute;
+	width:100%;
+	min-height: 100%;
+}
+
+a {
+	color: #333333;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover { color: #008C23; text-decoration: none; }
+
+.container {
+	margin-top: 100px;
+	margin-bottom: 40px;
+}
+
+.container#formulaire {
+	max-width:768px
+}
+
+.container p#mainbutton { text-align: center; }
+
+
+
+/*------------ Bouton de base ------------*/
+.btn {
+	color: #333333;
+	background-color: #DDDDDD;
+	border: 0px solid black;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	padding: 7px 12px;
+}
+
+.btn:hover {
+	color: #F5F5F5;
+	background-color: #008C23;
+}
+
+.btn.big {
+	font-weight: bold;
+	font-size: 40px;
+	padding: 35px;
+	margin-bottom: 20px;
+}
+
+.btn.admin {
+	font-weight: bold;
+	font-size: 25px;
+	padding: 50px 0px;
+	width:95%;
+	margin: 15px 0px;
+}
+
+.btn.formbtn {
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+
+.btn.loginbtn {
+	font-weight: bold;
+	font-size: 15px;
+	padding: 27px 10px;
+	margin-bottom: 20px;
+}
+
+.btn.editbtn {
+	width: 100%;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+
+
+/*------------ Haut de page ------------*/
+header {
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	padding: 10px 0px;
+}
+
+header p#slogan {
+	font-family: 'Kaushan';
+	margin-top: 40px;
+	font-size: 25px;
+	color: #003F1F;
+}
+
+header#mini {
+	display: block;
+	position: absolute;
+	background-color: #EEEEEE;
+	width: 100%;
+	height: 54px;
+	padding-top: 2px;
+}
+header#mini .col-sm-5 { padding-left: 0; }
+
+header#mini p#slogan {
+	font-family: 'Kaushan';
+	margin-top: 10px;
+	font-size: 20px;
+	color: #003F1F;
+	text-align: right;
+}
+
+header#admin-mini {
+	display: block;
+	position: absolute;
+	background-color: #EEEEEE;
+	width: 100%;
+	height: 54px;
+	padding-top: 2px;
+}
+header#admin-mini .col-sm-5 { padding-left: 0; }
+header#admin-mini p#slogan {
+	font-family: 'Kaushan';
+	margin-top: 10px;
+	font-size: 20px;
+	color: #003F1F;
+	text-align: right;
+}
+header#admin-mini p#slogan span#user { color: #008C23; }
+header#admin-mini p#slogan a#logout { font-weight: normal; font-size: 14px; }
+header#admin-mini p#slogan a#logout:hover { color: #AA0000; }
+
+
+/*------------ Bas de page ------------*/
+footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+/*------------ Formulaire ------------*/
+form {
+	color: #333333;
+}
+
+.form-bloc {
+	padding: 0px 10px;
+	margin: 0;
+}
+
+.form-group {
+	margin-bottom: 0px;
+	padding: 4px;
+}
+
+.form-control:focus {
+	border-color: #008C23;
+}
+
+.row#form-bloc {
+	padding: 0px 0px 10px 0px;
+	margin-bottom: 20px;
+	background-color: #EEEEEE;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+
+h3.form-title {
+	margin: 0px 0px 10px 0px;
+	padding: 10px;
+	color: #F5F5F5;
+	background-color: #008C23;
+	text-align: center;
+	border-radius: 2px 2px 0px 0px;
+	-webkit-border-radius: 2px 2px 0px 0px;
+	-moz-border-radius: 2px 2px 0px 0px;
+}
+
+h4.form-vehicle {
+	margin: 0 4px 5px 4px;
+	padding: 8px;
+	color: #888888;
+	text-align: center;
+}
+
+p.form-subtitle {
+	margin: 10px 0 0 0;
+	padding: 0px 6px;
+	color: #777;
+	font-weight: bold;
+}
+
+p.form-confirm {
+	width: 100%;
+	padding: 20px 0 0 0;
+	color: #008C23;
+	font-size: 28px;
+	font-weight: bold;
+	text-align: center;
+}
+p.form-confirm.fail { color: #990000; }
+
+h5.lgnd { font-weight: bold; color: #888;}
+span.lgnd { color: #999; }
+
+
+/*------------ Formulaire ------------*/
+
+.row#adm-mainbloc {
+	margin-bottom: 20px;
+}
+
+
+/*------------ Responsive (media queries) ------------*/
+
+@media screen and (max-width: 767px) {
+  	.btn.big {
+		font-weight: bold;
+		font-size: 30px;
+		padding: 25px;
+	}
+
+	header { text-align: center; }
+	header#mini p#slogan { display: none; }
+
+	header#admin-mini .col-sm-5 img { display: none; }
+	header#admin-mini p#slogan { text-align: center; }
+
+	.btn.admin {
+		font-weight: bold;
+		font-size: 20px;
+		padding: 30px 0px;
+		width: 100%;
+		margin: 5px 0px;
+	}
+
+	.btn.loginbtn {
+		width: 100%;
+		padding: 10px 10px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+  	.btn.big {
+		font-weight: bold;
+		font-size: 18px;
+		padding: 14px;
+	}
+
+	table#table td:nth-child(3),
+	table#table th:nth-child(3),
+	table#table td:nth-child(4),
+	table#table th:nth-child(4) {display: none;}
+}
+
+
