@@ -11,9 +11,13 @@
     <body>
         <!-- Header -->
         <header>
-            <div class="col-sm-7"><img src="public_html/images/logo.png" alt="logo"></div>
-            <div class="col-sm-5"><p id="slogan">Vos voitures durent plus longtemps avec IP Motors</p></div>
+            <div class="col-sm-7">
+                <img src="app/content/images/logo.png" alt="logo">
+                <div id="slogan">IPEZ Dans Le Game</div>
+            </div>
+            <div class="col-sm-5"></div>
         </header>
+        <div class="container"></div>
         <!--
         <div class="navbar navbar-inverse navbar-static-top">
         <a href="#" class="navbar-brand">IPEZ dans le Game </a> 
@@ -58,6 +62,11 @@
 
         <!-- FOOTER -->
         <footer>
+            <p class="text-center">
+              <a href="#">Mentions légales</a> /
+              <a href="#">Plan du site</a><br />
+              &copy;IPEZ 2014
+            </p>
         </footer>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="app/content/js/bootstrap.min.js"></script>

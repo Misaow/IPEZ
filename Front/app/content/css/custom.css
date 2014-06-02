@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 img{
-    max-width: 100%;
+    max-width: 200px;
 }
 
 /*------------ Polices de caractères ------------*/
@@ -117,11 +117,14 @@ header {
 	padding: 10px 0px;
 }
 
-header p#slogan {
+#slogan {
 	font-family: 'Kaushan';
-	margin-top: 40px;
+	//margin-top: 40px;
 	font-size: 25px;
 	color: #003F1F;
+        display: inline-block;
+        margin-left: 25px;
+        vertical-align: text-bottom;
 }
 
 header#mini {
