@@ -36,6 +36,7 @@ class User
             $_SESSION['id'] = $check[0]['id'];
             $_SESSION['is_admin'] = $check[0]['is_admin'];
             return true;
+           
         }
         return false;
     }
