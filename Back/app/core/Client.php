@@ -6,7 +6,7 @@ namespace app\core;
  *
  * @author Damien LAUNAY
  */
-class Client {
+class Client extends Database {
     
     private $id;
     private $mail;
@@ -19,9 +19,13 @@ class Client {
      *
      * @var array
      */
-    
     private $donnees = array();
     
+    
+     /**
+     * @var Database
+     */
+    protected $db;
 
     /**
      * Constructeur du client
@@ -30,9 +34,19 @@ class Client {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        
+        $this->db->connect();
     }
     
 
+    public function getClients(){
+        $this->db->select('TClient');
+    }
+    
+    /* public function addClient($params = array()){
+        $this->db->insert('TClient', $params);
+    }*/
+    
    /**
      * Set le Tableau $donnees pour l'update en base
      * @return \app\core\Client
