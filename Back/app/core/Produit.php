@@ -2,20 +2,18 @@
 
 namespace app\core;
 /**
- * Description of Event
+ * Description of Produit
  *
  * @author Damien LAUNAY
  */
-class Event {
+class Participation {
     
     private $id;
     private $nom;
     private $description;
-    private $date;
-    private $heure;
-    private $lieu;
-    
-
+    private $nb_vente;
+    private $nb_stock;
+ 
     /**
      * Constructeur du client
      * @param type $valeur
@@ -41,7 +39,6 @@ class Event {
         $this->setDonnees();
     }
     
-    
     /**
      * 
      * @return type
@@ -57,7 +54,7 @@ class Event {
     public function getNom() {
         return $this->nom;
     }
-
+    
     /**
      * 
      * @return type
@@ -70,24 +67,16 @@ class Event {
      * 
      * @return type
      */
-    public function getDate() {
-        return $this->date;
+    public function getNb_vente() {
+        return $this->nb_vente;
     }
 
     /**
      * 
      * @return type
      */
-    public function getHeure() {
-        return $this->heure;
-    }
-
-    /**
-     * 
-     * @return type
-     */
-    public function getLieu() {
-        return $this->lieu;
+    public function getNb_stock() {
+        return $this->nb_stock;
     }
 
     /**
@@ -116,26 +105,18 @@ class Event {
 
     /**
      * 
-     * @param type $date
+     * @param type $nb_vente
      */
-    public function setDate($date) {
-        $this->date = $date;
+    public function setNb_vente($nb_vente) {
+        $this->nb_vente = $nb_vente;
     }
 
     /**
      * 
-     * @param type $heure
+     * @param type $nb_stock
      */
-    public function setHeure($heure) {
-        $this->heure = $heure;
-    }
-
-    /**
-     * 
-     * @param type $lieu
-     */
-    public function setLieu($lieu) {
-        $this->lieu = $lieu;
+    public function setNb_stock($nb_stock) {
+        $this->nb_stock = $nb_stock;
     }
 
 
