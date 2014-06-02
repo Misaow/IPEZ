@@ -43,9 +43,10 @@ class Client extends Database {
         $this->db->select('TClient');
     }
     
-    /* public function addClient($params = array()){
-        $this->db->insert('TClient', $params);
-    }*/
+     public function addClient($mail, $nom, $prenom, $mdp, $newsletter = '0'){
+         $array = array($mail, $nom, $prenom, $mdp, $newletter);
+        $this->db->insert('TClient', $array);
+    }
     
    /**
      * Set le Tableau $donnees pour l'update en base
