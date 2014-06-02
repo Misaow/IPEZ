@@ -14,6 +14,15 @@ class Participation {
     private $nb_vente;
     private $nb_stock;
  
+    
+     /**
+     *
+     * @var array
+     */
+    
+    private $donnees = array();
+    
+    
     /**
      * Constructeur du client
      * @param type $valeur
@@ -38,6 +47,46 @@ class Participation {
         }
         $this->setDonnees();
     }
+    
+    
+    
+     /**
+     * Set le Tableau $donnees pour l'insertion en base
+     * @return \app\core\Choix
+     */
+    public function setDonnees() {
+        $this->donnees = array(
+            'id' => '',
+            'nom'=> $this->getNom(),
+            'description' => $this->getDescription(),
+            'nb_vente' => $this->getNb_vente(),
+            'nb_stock' => $this->getNb_stock()
+               
+        );
+        return $this;
+    }
+    /**
+     * Retourne Donnees
+     * @return array
+     */
+    public function getDonnees() {
+        return $this->donnees;
+    }
+
+    /**
+     * Set le Tableau $donnees pour l'update en base
+     * @return \app\core\Produit
+     */
+    public function setDonneesUp() {
+        $this->donnees = array(
+            'nom' => $this->getNom(),
+            'description' => $this->getDescription(),
+            'nb_vente' => $this->getNb_vente(),
+            'nb_stock' => $this->getNb_stock()
+        );
+        return $this;
+    }
+    
     
     /**
      * 
