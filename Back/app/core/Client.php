@@ -25,8 +25,46 @@ class Client {
             $this->init($valeur);
     }
     
-    
 
+   /**
+     * Set le Tableau $donnees pour l'update en base
+     * @return \app\core\Client
+     */
+    public function setDonneesUp() {
+        $this->donnees = array(
+            'mail' =>  $this->getMail(),
+            'nom' => $this->getNom(),
+            'prenom' => $this->getPrenom(),
+            'newsletter' =>  $this->getNewsletter(),
+            'mdp' => $this->getMdp(),
+            
+        );
+        return $this;
+    }
+
+    /**
+     * Retourne Donnees
+     * @return array
+     */
+    public function getDonnees() {
+        return $this->donnees;
+    }
+     /**
+     * Set le Tableau $donnees pour l'insertion en base
+     * @return \app\core\Clien
+     */
+    public function setDonnees() {
+        $this->donnees = array(
+            'id' => '',
+            'mail' =>  $this->getMail(),
+            'nom' => $this->getNom(),
+            'prenom' => $this->getPrenom(),
+            'newsletter' =>  $this->getNewsletter(),
+            'mdp' => $this->getMdp(),
+               
+        );
+        return $this;
+    }
     /**
      * Initialise les valeurs du client
      * @param array $donnees
