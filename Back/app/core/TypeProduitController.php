@@ -8,7 +8,7 @@
 
 namespace app\core;
 
-class TypeProduitManager extends Database  {
+class TypeProduitController extends Database  {
     
    
     /**
