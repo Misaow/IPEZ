@@ -44,7 +44,40 @@ class TypeProduit {
         $this->setDonnees();
     }
     
+     /**
+     * Set le Tableau $donnees pour l'insertion en base
+     * @return \app\core\Choix
+     */
+    public function setDonnees() {
+        $this->donnees = array(
+            'id' => '',
+            'nom'=> $this->getNom(),
+            'description' => $this->getDescription()
+               
+        );
+        return $this;
+    }
+    /**
+     * Retourne Donnees
+     * @return array
+     */
+    public function getDonnees() {
+        return $this->donnees;
+    }
 
+    /**
+     * Set le Tableau $donnees pour l'update en base
+     * @return \app\core\Produit
+     */
+    public function setDonneesUp() {
+        $this->donnees = array(
+            'nom' => $this->getNom(),
+            'description' => $this->getDescription(),
+        );
+        return $this;
+    }
+
+    
     /**
      * 
      * @return type
