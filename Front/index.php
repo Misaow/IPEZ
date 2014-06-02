@@ -5,8 +5,8 @@
         <meta name="keywords" content="keywords" />
         <meta name="author" content="IPEZ" />
         <link rel="shortcut icon" href="../favicon.ico">
-        <link rel="stylesheet" type="text/css" href="public_html/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="public_html/css/custom.css" />
+        <link rel="stylesheet" type="text/css" href="content/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="content/css/custom.css" />
     </head>
     <body>
         
@@ -32,8 +32,8 @@
         <footer>
         </footer>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script type="text/javascript" src="public_html/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="public_html/js/jquery.bxslider.min.js"></script>
+        <script type="text/javascript" src="content/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="content/js/jquery.bxslider.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function(){
             $('.bxslider').bxSlider();
