@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "pass": "",
+    "dbname": "ipmotors",
+    "prefix": "db_"
+}
