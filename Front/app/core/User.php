@@ -11,7 +11,7 @@ class User
     // Table Content
     private $id = "";
     private $login = "";
-    private $pwd = "";
+    private $mdp = "";
     private $is_admin = 0;
     
     // Functions
@@ -31,15 +31,16 @@ class User
 /**
  * Log a user
  * @param type $login
- * @param type $pwd
+ * @param type $mdp
  * @return boolean
  */
-    public function LogOn($login, $pwd)
+    public function LogOn($login, $mdp)
     {
         $this->db = new \app\core\Database();
         $this->db->connect();
-        $this->db->select('user', 'id', 'is_admin', NULL, 'Login =\'' . $login . '\' AND Pwd =\'' . md5($pwd) .'\'');
+            $this->db->select('tadmin', 'id,is_admin', NULL, 'login =\'' . $login . '\' AND mdp =\'' . md5($mdp) .'\'');
         $check = $this->db->getResult();
+       
         if (!empty($check))
         {
             $_SESSION['login'] = $login;
@@ -96,7 +97,7 @@ class User
     {
         $db = new \app\core\Database();
         $db->connect();
-        $db->select("user", "*", NULL, 'Id=\''.$id.'\' AND Login=\''.$login.'\'');
+        $db->select("tadmin", "*", NULL, 'id=\''.$id.'\' AND login=\''.$login.'\'');
         $res = $db->getResult();
         if($res[0]["is_admin"] == '1')
         {
@@ -135,11 +136,9 @@ class User
         $res = $this->db->getResult();
         foreach ($res as $values)
         {//There is 1 value
-            $this->setId($values["Id"]);
-            $this->setLogin($values["Login"]);
-            $this->setPwd($values["Pwd"]);
-            $this->setMail($values["Mail"]);
-            $this->setDateCreation($values["DateCreation"]);
+            $this->setId($values["id"]);
+            $this->setlogin($values["login"]);
+            $this->setmdp($values["mdp"]);
             $this->setIs_admin($values["is_admin"]);
         }
     }
@@ -171,12 +170,12 @@ class User
     {
         $this->db = new \app\core\Database();
         $this->db->connect();
-        $check = $this->db->select($this->table, "*", NULL, "Login = " . $this->login);
+        $check = $this->db->select($this->table, "*", NULL, "login = " . $this->login);
         if (empty($check))
         {
-            $this->db->insert($this->table, array('Login' => $this->login,
-                'Pwd' => md5($this->pwd),
-                'DateCreation' => $this->dateCreation,
+            $this->db->insert($this->table, array(
+                'login' => $this->login,
+                'mdp' => md5($this->mdp),
                 'is_admin' => $this->is_admin
             ));
             return true;
@@ -191,10 +190,10 @@ class User
     {
         $this->db = new \app\core\Database();
         $this->db->connect();
-        $this->db->update($this->table, array('Login' => $this->login, 
-                                              'Pwd' => md5($this->pwd),
-                                              'Mail'=> $this->mail,
-                                              'is_admin' => $this->is_admin), 'id=' . $this->id);
+        $this->db->update($this->table, array('login' => $this->login, 
+                                              'mdp' => md5($this->mdp),
+                                              'is_admin' => $this->is_admin),
+                                              'id=' . $this->id);
         $res = "";
         $res = $this->db->getResult();
         if(!empty($res))
@@ -215,14 +214,14 @@ class User
         return $this->id;
     }
 
-    public function getLogin()
+    public function getlogin()
     {
         return $this->login;
     }
 
-    public function getPwd()
+    public function getmdp()
     {
-        return $this->pwd;
+        return $this->mdp;
     }
     public function setId($id)
     {
@@ -230,15 +229,15 @@ class User
         return $this;
     }
 
-    public function setLogin($login)
+    public function setlogin($login)
     {
         $this->login = $login;
         return $this;
     }
 
-    public function setPwd($pwd)
+    public function setmdp($mdp)
     {
-        $this->pwd = $pwd;
+        $this->mdp = $mdp;
         return $this;
     }
 
