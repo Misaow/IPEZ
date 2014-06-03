@@ -1,45 +1,7 @@
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content="description" />
-        <meta name="keywords" content="keywords" />
-        <meta name="author" content="IPEZ" />
-        <link rel="shortcut icon" href="../favicon.ico">
-        <link rel="stylesheet" type="text/css" href="app/content/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="app/content/css/custom.scss" />
+<?php
+    include 'header.php';
+?>
 
-    </head>
-    <body>
-
-        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><img src="app/content/images/logo.png" height="100%" /></a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Accueil</a></li>
-                        <li><a href="#about">Présentation</a></li>
-                        <li><a href="#contact">Produits Phares</a></li>
-                        <li><a href="#contact">Newsletter</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav pull-right">
-                        <li>
-                            <a href="#about">Connexion / Inscription</a>
-                        </li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
 
         <div class="container">
             <div class="header-wrapper">
@@ -57,17 +19,17 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img src="app/content/images/Slideshow1.jpg" alt="...">
+                                    <img src="<?php echo IMG_DIRECTORY ?>/Slideshow1.jpg" alt="...">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <img src="app/content/images/Slideshow2.jpg" alt="...">
+                                    <img src="<?php echo IMG_DIRECTORY ?>/Slideshow2.jpg" alt="...">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <img src="app/content/images/Slideshow3.jpg" alt="...">
+                                    <img src="<?php echo IMG_DIRECTORY ?>/Slideshow3.jpg" alt="...">
                                     <div class="carousel-caption">
                                     </div>
                                 </div>
@@ -97,7 +59,7 @@
                                     <h3>Smartphone</h3>
                                 </div>
                                 <div class="smallvid-player">
-                                    <img width="100%" class="ex" src="app/content/images/smartphone.jpg"/>
+                                    <img width="100%" class="ex" src="<?php echo IMG_DIRECTORY ?>/smartphone.jpg"/>
                                 </div>
                             </div>
                             <div class="col-md-4 smallvid">
@@ -105,7 +67,7 @@
                                     <h3>Television</h3>
                                 </div>
                                 <div class="smallvid-player">
-                                    <img width="100%" class="ex" src="app/content/images/tv.jpg"/>
+                                    <img width="100%" class="ex" src="<?php echo IMG_DIRECTORY ?>/tv.jpg"/>
                                 </div>
                             </div>
                             <div class="col-md-4 smallvid">
@@ -113,7 +75,7 @@
                                     <h3>Consoles</h3>
                                 </div>
                                 <div class="smallvid-player">
-                                    <img width="100%" class="ex" src="app/content/images/GAME.jpg"/>
+                                    <img width="100%" class="ex" src="<?php echo IMG_DIRECTORY ?>/GAME.jpg"/>
                                 </div>
                             </div>
                         </div>
@@ -126,11 +88,11 @@
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script type="text/javascript" src="app/content/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo JS_DIRECTORY ?>/bootstrap.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#example').tooltip('show');
-                $('.carousel').carousel({interval: 2000});
+                $('.carousel').carousel({interval: 10000});
             });
         </script>
     </body>
