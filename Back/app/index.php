@@ -14,15 +14,18 @@ echo 'test';
 $tab = array(
     'id'=>'',
     'prenom' =>'damien',
-    'nom'=>'ge',
-   'mail'=>'aume@fefe.fr',
-    'mdp'=>'test',
+    'nom'    =>'ge',
+    'mail'   =>'aume@fefee.fr',
+    'mdp'    =>'test',
     'newsletter'=>'1'
     
     
 );
+
+
 $client = new app\core\Client($tab);
-$client->addClient($client);
+var_dump($client->addClient($client));
+var_dump($client);
 var_dump($client->getClients());
 
 

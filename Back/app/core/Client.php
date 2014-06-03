@@ -6,7 +6,7 @@ namespace app\core;
  *
  * @author Damien LAUNAY
  */
-class Client extends Database {
+class Client {
     
     private $id;
     private $mail;
@@ -48,8 +48,7 @@ class Client extends Database {
     
      public function addClient(Client $client){
          
-
-        $req = $this->db->insert('tclient', $client->getDonnees());
+        $req = $this->db->insert("tclient", $client->getDonnees());
         return $req;
     }
     

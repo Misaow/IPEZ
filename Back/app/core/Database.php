@@ -14,7 +14,7 @@ class Database
     private $db_host = "localhost";  // Change as required
     private $db_user = "user";  // Change as required
     private $db_pass = "password";  // Change as required
-    private $db_name = "database"; // Change as required
+    private $db_name = ""; // Change as required
     private $db_prefix = ""; // Change as required
 
     /*
@@ -245,6 +245,7 @@ class Database
     public function insert($table, $params = array())
     {
         // Check to see if the table exists
+       
         if ($this->tableExists($this->db_prefix.$table))
         {
             $sql = 'INSERT INTO `' . $this->db_prefix.$table . '` (`' . implode('`, `', array_keys($params)) . '`) VALUES ("' . implode('", "', $params) . '")';
@@ -256,11 +257,13 @@ class Database
                 return true; // The data has been inserted
             } else
             {
+         
                 array_push($this->result, mysql_error());
                 return false; // The data has not been inserted
             }
         } else
         {
+           
             return false; // Table does not exist
         }
     }
@@ -350,6 +353,7 @@ class Database
     private function tableExists($table)
     {
         $tablesInDb = @mysql_query('SHOW TABLES FROM ' . $this->db_name . ' LIKE "' . $table . '"');
+
         if ($tablesInDb)
         {
             if (mysql_num_rows($tablesInDb) == 1)
