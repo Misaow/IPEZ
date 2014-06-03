@@ -10,12 +10,12 @@ include ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPA
 include APP . DS . 'Autoloader.php';
 
 
-echo 'test';
+//echo 'test';
 $tab = array(
     'id'=>'',
-    'prenom' =>'damien',
+    'mail'=>'aume@fefe.fr',
     'nom'=>'ge',
-   'mail'=>'aume@fefe.fr',
+    'prenom' =>'damien',
     'mdp'=>'test',
     'newsletter'=>'1'
     
@@ -24,5 +24,3 @@ $tab = array(
 $client = new app\core\Client($tab);
 $client->addClient($client);
 var_dump($client->getClients());
-
-
