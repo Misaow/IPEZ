@@ -12,7 +12,7 @@ include '../Autoloader.php';
         <link rel="shortcut icon" href="<?php echo IMG_DIRECTORY ?>/favicon.ico">
         <link rel="stylesheet" type="text/css" href="<?php echo CSS_DIRECTORY ?>/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo CSS_DIRECTORY ?>/custom.scss" />
-
+        <link rel="stylesheet" type="text/css" href="<?php echo CSS_DIRECTORY ?>/highlight.css"/>
     </head>
     <body>
 
