@@ -1,24 +1,23 @@
 <?php
 
 namespace app\core;
+
 /**
  * Description of TypeEvent
  *
  * @author Damien LAUNAY
  */
-class Participation {
-    
+class TypeEvent {
+
     private $TTypeProduit_id;
     private $TEvent_id;
-    
+
     /**
      *
      * @var array
      */
-    
     private $donnees = array();
-    
- 
+
     /**
      * Constructeur du typeevent
      * @param type $valeur
@@ -27,8 +26,27 @@ class Participation {
         if (!empty($valeur))
             $this->init($valeur);
     }
-    
-    
+
+    public function getTypeEvent() {
+        $this->db = new \app\core\Database();
+        $this->db->select('ttypeevent');
+        return $this->db->getResult();
+    }
+
+    public function getTypeEventById($event_id, $produit_id) {
+        $this->db = new \app\core\Database();
+        $this->db->select('ttypeevent', '*', null, 'tevent_id=' . $event_id, 'ttypeproduit_id=' . $produit_id);
+        return $this->db->getResult();
+    }
+
+    public function addTypeEvent(TypeEvent $typeEvent) {
+        $req = $this->db->insert("ttypeevent", $typeevent->getDonnees());
+        return $req;
+    }
+
+    public function deleteTypeEvent($event_id, $produit_id) {
+        return $this->db->delete('ttypeevent', 'tevent_id=' . $event_id, 'ttypeproduit_id=' . $produit_id);
+    }
 
     /**
      * Initialise les valeurs du typeEvent
@@ -43,19 +61,19 @@ class Participation {
         }
         $this->setDonnees();
     }
-    
-    
-      /**
+
+    /**
      * Set le Tableau $donnees pour l'insertion en base
      * @return \app\core\Choix
      */
     public function setDonnees() {
         $this->donnees = array(
             'TTypeProduit_id' => $this->getTTypeProduit_id(),
-            'TEvent_id'=> $this->getTEvent_id()     
+            'TEvent_id' => $this->getTEvent_id()
         );
         return $this;
     }
+
     /**
      * Retourne Donnees
      * @return array
@@ -71,12 +89,11 @@ class Participation {
     public function setDonneesUp() {
         $this->donnees = array(
             'TTypeProduit_id' => $this->getTTypeProduit_id(),
-            'TEvent_id'=> $this->getTEvent_id()
+            'TEvent_id' => $this->getTEvent_id()
         );
         return $this;
     }
-    
-    
+
     /**
      * 
      * @return type $Produit_id
@@ -109,7 +126,4 @@ class Participation {
         $this->TEvent_id = $TEvent_id;
     }
 
-
-
-    
 }

@@ -29,6 +29,28 @@ class TypeProduit {
     }
     
     
+     public function getTypeProduit() {
+        $this->db = new \app\core\Database();
+        $this->db->select('ttypeproduit');
+        return $this->db->getResult();
+    }
+
+    public function getTypeProduitById($id) {
+        $this->db = new \app\core\Database();
+        $this->db->select('ttypeproduit', '*', null, 'id=' . $id);
+        return $this->db->getResult();
+    }
+
+    public function addTypeProduit(TypeProduit $ttypeproduit) {
+        $req = $this->db->insert("ttypeproduit", $ttypeproduit->getDonnees());
+        return $req;
+    }
+
+    public function deleteTypeProduit($id) {
+        return $this->db->delete('ttypeproduit', 'id=' . $id);
+    }
+    
+    
 
     /**
      * Initialise les valeurs du typeProduit
