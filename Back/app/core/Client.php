@@ -38,14 +38,21 @@ class Client {
         $this->db->connect();
     }
     
-
+/**
+ * retourne liste des clients
+ * @return type
+ */
     public function getClients(){
         $this->db = new \app\core\Database();
         $this->db->select('tclient');
         return $this->db->getResult();
         
     }
-    
+    /**
+     * Return Client by id
+     * @param type $id
+     * @return type
+     */
         public function getClientsById($id){
         $this->db = new \app\core\Database();
         $this->db->select('tclient', '*', null, 'id='.$id);
@@ -53,7 +60,11 @@ class Client {
         
     }
     
-    
+    /**
+     * Add a Client
+     * @param \app\core\Client $client
+     * @return type
+     */
      public function addClient(Client $client){
         $req = $this->db->insert("tclient", $client->getDonnees());
         return $req;

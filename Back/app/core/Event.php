@@ -73,6 +73,51 @@ class Event {
         return $this->donnees;
     }
 
+    
+    /**
+ * return list of Events
+ * @return type
+ */
+    public function getEvents(){
+        $this->db = new \app\core\Database();
+        $this->db->select('tevent');
+        return $this->db->getResult();
+        
+    }
+    
+    
+        /**
+     * Return Event by id
+     * @param type $id
+     * @return type
+     */
+        public function getEventById($id){
+        $this->db = new \app\core\Database();
+        $this->db->select('tevent', '*', null, 'id='.$id);
+        return $this->db->getResult();
+        
+    }
+    /**
+     * Add Event
+     * @param \app\core\Client $client
+     * @return type
+     */
+         public function addEvent(Event $event){
+        $req = $this->db->insert("tevent", $event->getDonnees());
+        return $req;
+    }
+    
+     /**
+     * Delete Event by Id
+     * @param type $TClient_id
+     * @param type $TEvent_id
+     * @return type
+     */
+    public function deleteClient($id) {
+        
+   return $this->db->delete('tevent', 'id='.$id);
+        
+    }
     /**
      * Set le Tableau $donnees pour l'update en base
      * @return \app\core\Event

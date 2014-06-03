@@ -45,6 +45,12 @@ class Participation {
         $this->setDonnees();
     }
     
+    /**
+     * Delete participation by Id
+     * @param type $TClient_id
+     * @param type $TEvent_id
+     * @return type
+     */
 public function deleteParticipation($TClient_id,$TEvent_id) {
         
    return $this->db->delete('tparticipation', 'TClient_id='.$TClient_id.'AND $TEvent_id='.$TEvent_id);
@@ -65,6 +71,17 @@ public function deleteParticipation($TClient_id,$TEvent_id) {
         public function getParticipation(){
         $this->db = new \app\core\Database();
         $this->db->select('tparticipation');
+        return $this->db->getResult();
+        
+    }
+    /**
+     * Return Participation by id
+     * @param type $id
+     * @return type
+     */
+     public function getParticipationById($id){
+        $this->db = new \app\core\Database();
+        $this->db->select('tparticipation', '*', null, 'id='.$id);
         return $this->db->getResult();
         
     }
