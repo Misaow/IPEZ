@@ -7,7 +7,7 @@ namespace app\core;
  * @author Damien LAUNAY
  */
 class Participation {
-    
+
     private $TClient_id;
     private $TEvent_id;
  
@@ -45,7 +45,29 @@ class Participation {
         $this->setDonnees();
     }
     
+public function deleteParticipation($TClient_id,$TEvent_id) {
+        
+   return $this->db->delete('tparticipation', 'TClient_id='.$TClient_id.'AND $TEvent_id='.$TEvent_id);
+        
+    }
     
+        public function addParticipation(Participation $participation){
+
+        $req = $this->db->insert("tparticipation", $participation->getDonnees());
+        return $req;
+    }
+    
+    
+    /**
+     * Retourne liste des participation
+     * @return type
+     */
+        public function getParticipation(){
+        $this->db = new \app\core\Database();
+        $this->db->select('tparticipation');
+        return $this->db->getResult();
+        
+    }
     
       /**
      * Set le Tableau $donnees pour l'insertion en base
@@ -78,9 +100,16 @@ class Participation {
         );
         return $this;
     }
-    
-    
-    
+    /**
+     * retourne l id de la participation
+     * @return type
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+
+        
     
     /**
      * 
