@@ -22,10 +22,24 @@ $tab = array(
     
 );
 
+$tabevent = array(
+    'id'=>'',
+    'nom'=>'Apple Product',
+    'description'=>'Vente privé de produits Apple',
+    'date' =>'2014-07-03',
+    'heure'=>'12:40:05',
+    'lieu'=>'Paris 18' 
+);
 
-$client = new app\core\Client($tab);
-$client->addClient($client);
+//$client = new app\core\Client($tab);
+//$client->addClient($client);
 
-var_dump($client->getClientsById(1));
+$event = new \app\core\Event($tabevent);
+$event->deleteClient(2);
+$event->deleteClient(9);
+
+
+var_dump($event->getEvents());
+//var_dump($client->getClientsById(1));
 
 

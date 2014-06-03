@@ -31,6 +31,9 @@ class Event {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        
+                $this->db = new \app\core\Database();
+        $this->db->connect();
     }
     
     
