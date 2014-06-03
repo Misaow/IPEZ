@@ -35,7 +35,7 @@ class TypeEvent {
 
     public function getTypeEventById($event_id, $produit_id) {
         $this->db = new \app\core\Database();
-        $this->db->select('ttypeevent', '*', null, 'tevent_id=' . $event_id, 'ttypeproduit_id=' . $produit_id);
+        $this->db->select('ttypeevent', '*', null, 'TEvent_id=' . $event_id, 'TTypeProduit_id=' . $produit_id);
         return $this->db->getResult();
     }
 
@@ -45,7 +45,7 @@ class TypeEvent {
     }
 
     public function deleteTypeEvent($event_id, $produit_id) {
-        return $this->db->delete('ttypeevent', 'tevent_id=' . $event_id, 'ttypeproduit_id=' . $produit_id);
+        return $this->db->delete('ttypeevent', 'TEvent_id=' . $event_id, 'TTypeProduit_id=' . $produit_id);
     }
 
     /**
