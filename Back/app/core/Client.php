@@ -47,8 +47,12 @@ class Client {
     }
     
      public function addClient(Client $client){
+<<<<<<< HEAD
          
         $req = $this->db->insert("tclient", $client->getDonnees());
+=======
+        $req = $this->db->insert('tclient', $client->getDonnees());
+>>>>>>> bf83693fa9ae6fe5199aa702f932c52e480dc509
         return $req;
     }
     
