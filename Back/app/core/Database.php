@@ -261,9 +261,12 @@ class Database
                 array_push($this->result, mysql_error());
                 return false; // The data has not been inserted
             }
-        } else           
-        {            
-            return false; // Table does not exist
+
+       } else
+
+        {
+           
+           return false; // Table does not exist
         }
     }
 
