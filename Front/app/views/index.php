@@ -1,11 +1,8 @@
 <?php
     include 'header.php';
 ?>
-
-
         <div class="container">
             <div class="header-wrapper">
-
                 <div class="row">
                     <div class="col-md-12 nogutter">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height: 420px;">
@@ -15,7 +12,6 @@
                                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                             </ol>
-
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
@@ -43,11 +39,7 @@
                             </a>
                         </div>
                     </div>
-
-
                 </div>
-
-
             </div><!--Header Wrapper-->
 
             <div class="maincontent">

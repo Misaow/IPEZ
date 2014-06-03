@@ -31,17 +31,17 @@ include '../Autoloader.php';
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Accueil</a></li>
-                        <li><a href="#about">Présentation</a></li>
-                        <li><a href="#contact">Produits Phares</a></li>
-                        <li><a href="#contact">Newsletter</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="index.php">Accueil</a></li>
+                        <li><a href="presentation.php">Présentation</a></li>
+                        <li><a href="highlight.php">Produits Phares</a></li>
+                        <li><a href="newsletter.php">Newsletter</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <a href="#about">Connexion / Inscription</a>
+                            <a href="connexion.php">Connexion / Inscription</a>
                         </li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
+        
