@@ -14,19 +14,41 @@ class Produit {
     private $nb_vente;
     private $nb_stock = 0;
     private $TTypeProduit_id;
+    private $image;
     
+    /**
+     * return product's picture
+     * @return type
+     */
+    public function getImage() {
+        return $this->image;
+    }
 
+    /**
+     * update image
+     * @param type $image
+     */
+    public function setImage($image) {
+        $this->image = $image;
+    }
 
-
+    /**
+     * return id type
+     * @return type
+     */
     public function getTTypeProduit_id() {
         return $this->TTypeProduit_id;
     }
 
+    /**
+     * update type
+     * @param type $TTypeProduit_id
+     */
     public function setTTypeProduit_id($TTypeProduit_id) {
         $this->TTypeProduit_id = $TTypeProduit_id;
     }
 
-        /**
+      /**
      *
      * @var array
      */
