@@ -53,6 +53,20 @@ class Client {
         return $req;
     }
     
+    public function deleteClient($id) {
+        
+   return $this->db->delete('tclient', 'id='.$id);
+        
+    }
+    /**
+     * Update un Client, retourne si la requête à réussi
+     * @param \app\core\Client $client
+     * @return bool
+     */
+    public function updateClient(Client $client){
+        $client->setDonneesUp();
+        return $this->db->update('tclient', $client->getDonnees(), 'id='.$client->getId());
+    }
    /**
      * Set le Tableau $donnees pour l'update en base
      * @return \app\core\Client

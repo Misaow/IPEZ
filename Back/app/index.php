@@ -24,8 +24,20 @@ $tab = array(
 
 
 $client = new app\core\Client($tab);
-var_dump($client->addClient($client));
-var_dump($client->getClients());
 $client->addClient($client);
+
+$tab = array(
+    'id'=>'2',
+    'mail'=>'aume@fefe.fr',
+    'nom'=>'ge',
+    'prenom' =>'Damien',
+    'mdp'=>'test',
+    'newsletter'=>'1'
+    
+    
+);
+$client2 = new app\core\Client($tab);
+
+$client->updateClient($client2);
 var_dump($client->getClients());
 
