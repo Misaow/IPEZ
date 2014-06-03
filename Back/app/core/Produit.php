@@ -12,7 +12,7 @@ class Produit {
     private $nom;
     private $description;
     private $nb_vente;
-    private $nb_stock;
+    private $nb_stock = 0;
     private $TTypeProduit_id;
     
 
