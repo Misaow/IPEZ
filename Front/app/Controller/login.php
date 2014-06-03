@@ -1,5 +1,5 @@
 <?php
-$id = isset($_POST["id"]) ? $_POST["id"] : "";
+$id = isset($_SESSION["id"]) ? $_SESSION["id"] : "";
 $Login = isset($_POST["Login"]) ? $_POST["Login"] : "";
 $Pwd = isset($_POST["Pwd"]) ? $_POST["Pwd"] : "";
 app\core\User::isAlreadyLogged($id);
