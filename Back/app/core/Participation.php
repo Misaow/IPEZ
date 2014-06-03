@@ -28,7 +28,7 @@ class Participation {
         if (!empty($valeur))
             $this->init($valeur);
      
-                $this->db = new \app\core\Database();
+        $this->db = new \app\core\Database();
         $this->db->connect();
     }
     

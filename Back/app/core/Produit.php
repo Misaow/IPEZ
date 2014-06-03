@@ -6,7 +6,7 @@ namespace app\core;
  *
  * @author Damien LAUNAY
  */
-class Participation {
+class Produit {
     
     private $id;
     private $nom;
@@ -30,6 +30,8 @@ class Participation {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+                        $this->db = new \app\core\Database();
+        $this->db->connect();
     }
     
     
@@ -86,10 +88,50 @@ class Participation {
         );
         return $this;
     }
+ /**
+ * return list of Products
+ * @return type
+ */
+    public function getProduits(){
+        $this->db = new \app\core\Database();
+        $this->db->select('tproduit');
+        return $this->db->getResult();
+        
+    }
+    /**
+     * Return Product by id
+     * @param type $id
+     * @return type
+     */
+        public function getProduitById($id){
+        $this->db = new \app\core\Database();
+        $this->db->select('tproduit', '*', null, 'id='.$id);
+        return $this->db->getResult();
+        
+    }
     
+/**
+ * Delete Product by id
+ * @param type $id
+ * @return type
+ */
+    public function deleteProduit($id) {
+        
+   return $this->db->delete('tproduit', 'id='.$id);
+        
+    }
+    /**
+     * Add Product
+     * @param \app\core\Product $produit
+     * @return type
+     */
+         public function addProduit(Produit $produit){
+        $req = $this->db->insert("tproduit", $produit->getDonnees());
+        return $req;
+    }
     
     /**
-     * 
+     * Return id Product
      * @return type $id
      */
     public function getId() {

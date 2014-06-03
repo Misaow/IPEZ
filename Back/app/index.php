@@ -31,15 +31,28 @@ $tabevent = array(
     'lieu'=>'Paris 18' 
 );
 
+$tabproduit = array(
+    'id'=>'',
+    'nom'=>'HTC 6',
+    'description'=>'Apple Iphone 6 Smartphone, le telephone des loosers',
+    'nb_vente' =>'0',
+    'nb_stock'=>'20',
+
+);
+
 //$client = new app\core\Client($tab);
 //$client->addClient($client);
 
-$event = new \app\core\Event($tabevent);
-$event->deleteClient(2);
-$event->deleteClient(9);
+//$event = new \app\core\Event($tabevent);
+//$event->deleteClient(2);
+//$event->deleteClient(9);
 
 
-var_dump($event->getEvents());
+//var_dump($event->getEvents());
 //var_dump($client->getClientsById(1));
 
+$produit = new app\core\Produit($tabproduit);
 
+$produit->addProduit($produit);
+var_dump($produit->getProduits());
+//var_dump($produit->getProduitById(1));

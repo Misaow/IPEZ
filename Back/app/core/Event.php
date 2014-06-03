@@ -102,7 +102,7 @@ class Event {
     }
     /**
      * Add Event
-     * @param \app\core\Client $client
+     * @param \app\core\Event $event
      * @return type
      */
          public function addEvent(Event $event){
@@ -110,13 +110,12 @@ class Event {
         return $req;
     }
     
-     /**
-     * Delete Event by Id
-     * @param type $TClient_id
-     * @param type $TEvent_id
-     * @return type
-     */
-    public function deleteClient($id) {
+/**
+ * Delete Event by Id
+ * @param type $id
+ * @return type
+ */
+    public function deleteEvent($id) {
         
    return $this->db->delete('tevent', 'id='.$id);
         
