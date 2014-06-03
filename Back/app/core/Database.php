@@ -243,11 +243,11 @@ class Database
      * @return boolean
      */
     public function insert($table, $params = array())
-    {
+    {        
         // Check to see if the table exists
        
         if ($this->tableExists($this->db_prefix.$table))
-        {
+        {            
             $sql = 'INSERT INTO `' . $this->db_prefix.$table . '` (`' . implode('`, `', array_keys($params)) . '`) VALUES ("' . implode('", "', $params) . '")';
             $this->myQuery = $sql; // Pass back the SQL
             // Make the query to insert to the database
@@ -261,9 +261,8 @@ class Database
                 array_push($this->result, mysql_error());
                 return false; // The data has not been inserted
             }
-        } else
-        {
-           
+        } else           
+        {            
             return false; // Table does not exist
         }
     }
