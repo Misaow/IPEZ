@@ -13,9 +13,20 @@ class Produit {
     private $description;
     private $nb_vente;
     private $nb_stock;
- 
+    private $TTypeProduit_id;
     
-     /**
+
+
+
+    public function getTTypeProduit_id() {
+        return $this->TTypeProduit_id;
+    }
+
+    public function setTTypeProduit_id($TTypeProduit_id) {
+        $this->TTypeProduit_id = $TTypeProduit_id;
+    }
+
+        /**
      *
      * @var array
      */
@@ -62,7 +73,8 @@ class Produit {
             'nom'=> $this->getNom(),
             'description' => $this->getDescription(),
             'nb_vente' => $this->getNb_vente(),
-            'nb_stock' => $this->getNb_stock()
+            'nb_stock' => $this->getNb_stock(),
+            'TTypeProduit_id' => $this->getTTypeProduit_id(),
                
         );
         return $this;
@@ -84,7 +96,8 @@ class Produit {
             'nom' => $this->getNom(),
             'description' => $this->getDescription(),
             'nb_vente' => $this->getNb_vente(),
-            'nb_stock' => $this->getNb_stock()
+            'nb_stock' => $this->getNb_stock(),
+            'TTypeProduit_id' => $this->getTTypeProduit_id()
         );
         return $this;
     }
@@ -129,7 +142,34 @@ class Produit {
         $req = $this->db->insert("tproduit", $produit->getDonnees());
         return $req;
     }
+        /**
+     * Update un Product, retourne si la requête à réussi
+     * @param \app\core\Product $product
+     * @return bool
+     */
+    public function updateProduit(Produit $produit){
+        $produit->setDonneesUp();
+        return $this->db->update('tproduit', $produit->getDonnees(), 'id='.$produit->getId());
+    }
     
+    public function updateStock(Produit $produit, $nb_vente) {
+        
+       $nb_stock = $produit->getNb_stock() - $nb_vente;
+       $produit->nb_stock = $nb_stock;
+       
+       return $this->db->update('tproduit', array('nb_stock'=>$nb_stock,'nb_vente'=>$nb_vente), 'id='.$produit->getId());
+        
+    }
+    
+    public function topVenteProduits() {
+        
+        $this->db = new \app\core\Database();
+        
+        $this->db->select('tproduit', '*', null, null, 'nb_vente DESC', '10');
+        return $this->db->getResult();
+
+       
+    }
     /**
      * Return id Product
      * @return type $id

@@ -13,9 +13,9 @@ include APP . DS . 'Autoloader.php';
 //echo 'test';
 $tab = array(
     'id'=>'',
-    'mail'=>'aume@fefe.fr',
+    'mail'=>'aume@fsefe.fr',
     'nom'=>'ge',
-    'prenom' =>'damien',
+    'prenom' =>'Samien',
     'mdp'=>'test',
     'newsletter'=>'1'
     
@@ -30,13 +30,23 @@ $tabevent = array(
     'heure'=>'12:40:05',
     'lieu'=>'Paris 18' 
 );
-
 $tabproduit = array(
     'id'=>'',
-    'nom'=>'HTC 6',
-    'description'=>'Apple Iphone 6 Smartphone, le telephone des loosers',
+    'nom'=>'Galaxy tab 6',
+    'description'=>'Samsung Ipad 6 TAblette, le telephone des loosers',
     'nb_vente' =>'0',
-    'nb_stock'=>'20',
+    'nb_stock'=>'15',
+    'TTypeProduit_id' => '2 ',
+
+);
+$produit = new app\core\Produit($tabproduit);
+$tabproduit2 = array(
+    'id'=>'12',
+    'nom'=>'Ipad 6',
+    'description'=>'Apple Ipad 6 TAblette, le telephone des loosers',
+    'nb_vente' =>'5',
+    'nb_stock'=>'10',
+    'TTypeProduit_id' => '2 ',
 
 );
 
@@ -51,8 +61,14 @@ $tabproduit = array(
 //var_dump($event->getEvents());
 //var_dump($client->getClientsById(1));
 
-$produit = new app\core\Produit($tabproduit);
 
+$produit2 = new app\core\Produit($tabproduit2);
+
+
+//$produit->deleteProduit(10 );
+$produit = new app\core\Produit($tabproduit);
 $produit->addProduit($produit);
-var_dump($produit->getProduits());
+//$produit->updateProduit($produit2);
+//$produit->updateStock($produit2, 2);
+var_dump($produit->topVenteProduits());
 //var_dump($produit->getProduitById(1));
