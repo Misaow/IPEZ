@@ -94,7 +94,7 @@ class Client {
             'nom' => $this->getNom(),
             'prenom' => $this->getPrenom(),
             'newsletter' =>  $this->getNewsletter(),
-            'mdp' => $this->getMdp(),
+            'mdp' => md5($this->getMdp()),
 
         );
         return $this;
@@ -118,7 +118,7 @@ class Client {
             'nom' => $this->getNom(),
             'prenom' => $this->getPrenom(),
             'newsletter' =>  $this->getNewsletter(),
-            'mdp' => $this->getMdp(),
+            'mdp' => md5($this->getMdp()),
                
         );
         return $this;
