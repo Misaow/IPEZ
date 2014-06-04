@@ -68,6 +68,16 @@ class Event {
         );
         return $this;
     }
+    
+    /**
+     * Update a current Event
+     * @param \app\core\Event $event
+     * @return type
+     */
+        public function updateEvent(Event $event){
+        $event->setDonneesUp();
+        return $this->db->update('tevent', $event->getDonnees(), 'id='.$event->getId());
+    }
     /**
      * Retourne Donnees
      * @return array

@@ -6,7 +6,7 @@ $date    = isset($_POST["date"]) ? $_POST["date"] : "";
 $heure    = isset($_POST["heure"]) ? $_POST["heure"] : "";
 $lieu   = isset($_POST["lieu"]) ? $_POST["lieu"] : "";
 
-$addevent = false;
+$updateevent = false;
 
 if(!empty($nom)){
     
@@ -16,8 +16,7 @@ if(!empty($nom)){
     $event->setHeure($heure);
     $event->setNom($nom);
     $event->setLieu($lieu);
-    $event->addEvent($event);
     
-    $addevent = true;
-  
+    $event->updateEvent($event);
+    $updateevent = true;
 }
