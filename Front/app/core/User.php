@@ -65,10 +65,8 @@ class User
                 return TRUE;
             }
         }
-        // Modifier 
-        header("location:".WEBROOT."/admin/login.php");
-        exit();
-        //return FALSE;
+        
+        return FALSE;
     }
     
     /**

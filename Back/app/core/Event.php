@@ -33,7 +33,7 @@ class Event {
             $this->init($valeur);
         
                 $this->db = new \app\core\Database();
-        $this->db->connect();
+                $this->db->connect();
     }
     
     

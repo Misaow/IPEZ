@@ -119,6 +119,19 @@ class Participation {
     public function getNb_vente() {
         return $this->nb_vente;
     }
+    
+        /**
+     * Return list of top sale product
+     * @return type
+     */
+    public function topVenteProduits() {
+        
+        $this->db = new \app\core\Database();
+        $this->db->select('tevent, thistoriquevente',"TEvent_id, TProduit_id",NULL, 'DATE < NOW()', 'nb_vente DESC', '10');
+        return $this->db->getResult();
+
+       
+    }
 
     /**
      * 

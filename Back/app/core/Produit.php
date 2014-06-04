@@ -183,11 +183,15 @@ class Produit {
         
     }
     
+    /**
+     * Return list of top sale product
+     * @return type
+     */
     public function topVenteProduits() {
         
         $this->db = new \app\core\Database();
         
-        $this->db->select('tproduit', '*', null, null, 'nb_vente DESC', '10');
+        $this->db->select('tevent, thistoriquevente',"TEvent_id, TProduit_id",NULL, 'DATE < NOW() AND thistoriquevente.TEvent_id = tevent.id', 'nb_vente DESC', '10');
         return $this->db->getResult();
 
        

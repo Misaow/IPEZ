@@ -16,8 +16,18 @@ $tab = array(
     'mail'=>'aume@fsefe.fr',
     'nom'=>'ge',
     'prenom' =>'Samien',
-    'mdp'=>'test',
+    'mdp'=>'21232f297a57a5a743894a0e4a801fc3',
     'newsletter'=>'1'
+    
+    
+);
+$tab2 = array(
+    'id'=>'',
+    'mail'=>'admin@admin.fr',
+    'nom'=>'ge',
+    'prenom' =>'Samien',
+    'mdp'=>'21232f297a57a5a743894a0e4a801fc3',
+    'newsletter'=>'0'
     
     
 );
@@ -32,11 +42,12 @@ $tabevent = array(
 );
 $tabproduit = array(
     'id'=>'',
-    'nom'=>'Galaxy tab 6',
-    'description'=>'Samsung Ipad 6 TAblette, le telephone des loosers',
+    'nom'=>'Iphone 5 tab 6',
+    'description'=>'Aplle Ipad 6 Smartphone, le telephone des loosers',
     'nb_vente' =>'0',
     'nb_stock'=>'15',
-    'TTypeProduit_id' => '2 ',
+    'TTypeProduit_id' => '1 ',
+    'image'=>'test.jpg'
 
 );
 $produit = new app\core\Produit($tabproduit);
@@ -52,6 +63,8 @@ $tabproduit2 = array(
 
 //$client = new app\core\Client($tab);
 //$client->addClient($client);
+//$client2 = new app\core\Client($tab2);
+//$client2->addClient($client2);
 
 //$event = new \app\core\Event($tabevent);
 //$event->deleteClient(2);
@@ -62,13 +75,18 @@ $tabproduit2 = array(
 //var_dump($client->getClientsById(1));
 
 
-$produit2 = new app\core\Produit($tabproduit2);
-
+$produit = new app\core\Produit($tabproduit);
+$produit->setId(12);
+var_dump($produit->getDescription());
 
 //$produit->deleteProduit(10 );
-$produit = new app\core\Produit($tabproduit);
-$produit->addProduit($produit);
+//$produit = new app\core\Produit($tabproduit);
+//$produit->addProduit($produit);
 //$produit->updateProduit($produit2);
 //$produit->updateStock($produit2, 2);
-var_dump($produit->topVenteProduits());
+//var_dump($produit->topVenteProduits());
 //var_dump($produit->getProduitById(1));
+//var_dump($produit->getProduits());
+
+
+
