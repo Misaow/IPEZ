@@ -39,7 +39,7 @@ include '../Autoloader.php';
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <?php if (!app\core\User::isLogged($_SESSION['id'])) { ?>
+                            <?php if (!empty($_SESSION['id'])) { ?>
                                 <a href="connexion.php">Connexion / Inscription</a>
                             <?php } else {
                                 ?>
