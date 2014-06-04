@@ -29,10 +29,10 @@ var_dump($result);
                                 $i++;
                                 echo "<tr data-id=\"".$result['id']."\">
                                         <td>".$i."</td>
-                                        <td>".$result['nom']."</td>
-                                        <td>".$result['lieu']."</td>
-                                        <td>".$result['heure']."</td>
-                                        <td>".$result['date']."</td>
+                                        <td>".$result[0]['nom']."</td>
+                                        <td>".$result[0]['lieu']."</td>
+                                        <td>".$result[0]['heure']."</td>
+                                        <td>".$result[0]['date']."</td>
                                      </tr>";
                             } ?>
                         </tbody>
