@@ -3,15 +3,19 @@
 $nom         = isset($_POST["nom"]) ? $_POST["nom"] : "";
 $description = isset($_POST["description"]) ? $_POST["description"] : "";
 
-$updatetypeproduct = false;
+
+$addtypeproduit = false;
 
 if(!empty($nom)){
     
     $typeproduit = new app\core\TypeProduit();
     $typeproduit->setDescription($description);
     $typeproduit->setNom($nom);
+   
+    $typeproduit->addTypeProduit($typeproduit);
     
-    $typeproduit->updateTypeProduit($typeproduit);
     
-    $updatetypeproduct = true;
+    
+    $addtypeproduit = true;
+  
 }

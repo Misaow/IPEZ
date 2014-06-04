@@ -149,4 +149,14 @@ class TypeProduit {
     }
 
 
+    /**
+     * Update type Produit
+     * @param \app\core\TypeProduit $typeproduit
+     * @return type
+     */
+    public function updateTypeProduit(TypeProduit $typeproduit){
+        $produit->setDonneesUp();
+        return $this->db->update('ttypeproduit', $typeproduit->getDonnees(), 'id='.$typeproduit->getId());
+    }
+    
 }
