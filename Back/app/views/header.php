@@ -1,6 +1,7 @@
 <?php
-define( 'ROOT', dirname(dirname( __DIR__ )) );
-include ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'defines.php';
+session_start();
+define('ROOT', dirname(dirname(__DIR__)));
+include ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'defines.php';
 include '../Autoloader.php';
 ?>
 <html>
@@ -12,7 +13,7 @@ include '../Autoloader.php';
         <link rel="shortcut icon" href="<?php echo IMG_DIRECTORY ?>/favicon.ico">
         <link rel="stylesheet" type="text/css" href="<?php echo CSS_DIRECTORY ?>/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo CSS_DIRECTORY ?>/custom.scss" />
-
+        <link rel="stylesheet" type="text/css" href="<?php echo CSS_DIRECTORY ?>/highlight.css"/>
     </head>
     <body>
 
@@ -31,17 +32,26 @@ include '../Autoloader.php';
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Accueil</a></li>
-                        <li><a href="#about">Présentation</a></li>
-                        <li><a href="#contact">Produits Phares</a></li>
-                        <li><a href="#contact">Newsletter</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="index.php">Accueil</a></li>
+                        <li><a href="presentation.php">Présentation</a></li>
+                        <li><a href="highlight.php">Produits Phares</a></li>
+                        <li><a href="newsletter.php">Newsletter</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <a href="#about">Connexion / Inscription</a>
+                            <?php if (!app\core\User::isLogged($_SESSION['id'])) { ?>
+                                <a href="connexion.php">Connexion / Inscription</a>
+                            <?php } else {
+                                ?>
+                                <a href="connexion.php?action=logout">Déconnexion</a>
+                            <?php } ?>
                         </li>
                     </ul>
                 </div><!--/.nav-collapse -->
+                <div class="col-md-12">
+                    <div class="col-md-6 col-md-offset-3 slogan" style="padding: 0px;"> 
+                        Les ventes privées High-Tech qui font tourner la tête
+                    </div>
+                </div>
             </div>
         </div>

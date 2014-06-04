@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
-/* include footer */
+include CONTROLLER_DIRECTORY.'/listEvent.php';
+var_dump($result);
 ?>
 <div class="container maincontent">
     <div class="row">
@@ -12,6 +13,7 @@ include 'header.php';
                 <div class="table-responsive" style="margin: 30px">
                     <table class="table table-hover">
                         <thead>
+                            
                             <tr>
                                 <th>#</th>
                                 <th>Type</th>
@@ -21,20 +23,18 @@ include 'header.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Smartphones</td>
-                                <td>Grand Palais</td>
-                                <td>17h-20h</td>
-                                <td>21/02/2015</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Télevisions</td>
-                                <td>Louvre</td>
-                                <td>19h-23h</td>
-                                <td>22/03/2015</td>
-                            </tr>
+                            <?php
+                            $i = 0;
+                            foreach ($result as $value) {
+                                $i++;
+                                echo "<tr data-id=\"".$result['id']."\">
+                                        <td>".$i."</td>
+                                        <td>".$result['nom']."</td>
+                                        <td>".$result['lieu']."</td>
+                                        <td>".$result['heure']."</td>
+                                        <td>".$result['date']."</td>
+                                     </tr>";
+                            } ?>
                         </tbody>
                     </table>
                 </div>

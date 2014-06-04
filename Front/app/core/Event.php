@@ -31,6 +31,9 @@ class Event {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        
+                $this->db = new \app\core\Database();
+        $this->db->connect();
     }
     
     
@@ -65,6 +68,16 @@ class Event {
         );
         return $this;
     }
+    
+    /**
+     * Update a current Event
+     * @param \app\core\Event $event
+     * @return type
+     */
+        public function updateEvent(Event $event){
+        $event->setDonneesUp();
+        return $this->db->update('tevent', $event->getDonnees(), 'id='.$event->getId());
+    }
     /**
      * Retourne Donnees
      * @return array
@@ -72,16 +85,60 @@ class Event {
     public function getDonnees() {
         return $this->donnees;
     }
+
+    
+    /**
+ * return list of Events
+ * @return type
+ */
+    public function getEvents(){
+        $this->db = new \app\core\Database();
+        $this->db->select('tevent');
+        return $this->db->getResult();
+        
+    }
     /**
      * Retourne la liste des evenements disponibles
      * @return type
      */
     public function getEventBydate(){
         
-        $this->db = new \app\core\Database();
+        //$this->db = new \app\core\Database();
 
         $this->db->select('tevent','*',null, 'date >= NOW()');
         return $this->db->getResult();    
+    }
+
+        /**
+     * Return Event by id
+     * @param type $id
+     * @return type
+     */
+        public function getEventById($id){
+        $this->db = new \app\core\Database();
+        $this->db->select('tevent', '*', null, 'id='.$id);
+        return $this->db->getResult();
+        
+    }
+    /**
+     * Add Event
+     * @param \app\core\Event $event
+     * @return type
+     */
+         public function addEvent(Event $event){
+        $req = $this->db->insert("tevent", $event->getDonnees());
+        return $req;
+    }
+    
+/**
+ * Delete Event by Id
+ * @param type $id
+ * @return type
+ */
+    public function deleteEvent($id) {
+        
+   return $this->db->delete('tevent', 'id='.$id);
+        
     }
     /**
      * Set le Tableau $donnees pour l'update en base

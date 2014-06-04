@@ -1,5 +1,5 @@
 <?php
 
+$event = new \app\core\Event();
 
-$event = new \app\core\Event;
-$event->getEventBydate();
+$result = $event->getEventBydate();

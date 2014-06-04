@@ -48,6 +48,10 @@ include '../Autoloader.php';
                         </li>
                     </ul>
                 </div><!--/.nav-collapse -->
-                <div class="col-md-4 col-md-offset-4 slogan"> "Les ventes privées High-Tech qui font tourner la tête" </div>
+                <div class="col-md-12">
+                    <div class="col-md-6 col-md-offset-3 slogan" style="padding: 0px;"> 
+                        Les ventes privées High-Tech qui font tourner la tête
+                    </div>
+                </div>
             </div>
         </div>
