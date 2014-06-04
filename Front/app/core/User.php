@@ -38,14 +38,14 @@ class User
     {
         $this->db = new \app\core\Database();
         $this->db->connect();
-            $this->db->select('tadmin', 'id,is_admin', NULL, 'login =\'' . $login . '\' AND mdp =\'' . md5($mdp) .'\'');
+            $this->db->select('tclient', 'id', NULL, 'mail =\'' . $login . '\' AND mdp =\'' . md5($mdp) .'\'');
         $check = $this->db->getResult();
        
         if (!empty($check))
         {
             $_SESSION['login'] = $login;
             $_SESSION['id'] = $check[0]['id'];
-            $_SESSION['is_admin'] = $check[0]['is_admin'];
+            //$_SESSION['is_admin'] = $check[0]['is_admin'];
             return true;
            
         }
