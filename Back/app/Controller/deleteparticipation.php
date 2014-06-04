@@ -1,11 +1,11 @@
 <?php
 
-$TTypeProduit_id = isset($_POST["TTypeProduit_id"]) ? $_POST["TTypeProduit_id"] : "";
+$TClient_id  = isset($_POST["TClient_id "]) ? $_POST["TClient_id "] : "";
 $TEvent_id = isset($_POST["TEvent_id"]) ? $_POST["TEvent_id"] : "";
 
 $deleteparticipation = false;
 
-if((!empty($TEvent_id)) && (!empty($TTypeProduit_id))){
+if((!empty($TEvent_id)) && (!empty($TClient_id ))){
     
     $participation = new \app\core\Participation();
     $participation->deleteParticipation($TClient_id, $TEvent_id);
