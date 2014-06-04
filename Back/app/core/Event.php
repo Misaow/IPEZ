@@ -97,8 +97,18 @@ class Event {
         return $this->db->getResult();
         
     }
-    
-    
+    /**
+     * Retourne la liste des evenements disponibles
+     * @return type
+     */
+    public function getEventBydate(){
+        
+        $this->db = new \app\core\Database();
+
+        $this->db->select('tevent','*',null, 'date >= NOW()');
+        return $this->db->getResult();    
+    }
+
         /**
      * Return Event by id
      * @param type $id

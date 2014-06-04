@@ -72,7 +72,17 @@ class Event {
     public function getDonnees() {
         return $this->donnees;
     }
+    /**
+     * Retourne la liste des evenements disponibles
+     * @return type
+     */
+    public function getEventBydate(){
+        
+        $this->db = new \app\core\Database();
 
+        $this->db->select('tevent','*',null, 'date >= NOW()');
+        return $this->db->getResult();    
+    }
     /**
      * Set le Tableau $donnees pour l'update en base
      * @return \app\core\Event
