@@ -14,6 +14,7 @@ class User
     private $mdp = "";
     private $is_admin = 0;
     
+    
     // Functions
     
     
