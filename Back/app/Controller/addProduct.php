@@ -4,7 +4,6 @@ $nom         = isset($_POST["nom"]) ? $_POST["nom"] : "";
 $description = isset($_POST["description"]) ? $_POST["description"] : "";
 $nb_vente    = isset($_POST["nb_vente"]) ? $_POST["nb_vente"] : "";
 $nb_stock    = isset($_POST["nb_stock"]) ? $_POST["nb_stock"] : "";
-$nb_stock    = isset($_POST["TTypeProduit_id"]) ? $_POST["TTypeProduit_id"] : "";
 $image       = isset($_POST["image"]) ? $_POST["image"] : "";
 
 

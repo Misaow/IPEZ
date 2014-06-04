@@ -85,4 +85,5 @@ include CONTROLLER_DIRECTORY . '/login.php';
         </div>
     </div>
 </div>
+<?php include 'script.php'; ?>
 <?php include 'footer.php'; ?>

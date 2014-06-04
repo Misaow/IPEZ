@@ -16,5 +16,5 @@ include 'header.php';
     </div><!--Header Wrapper-->
 
 </div>
-
+<?php include 'script.php'; ?>
 <?php include 'footer.php'; ?>
