@@ -26,14 +26,15 @@ var_dump($result);
                             <?php
                             $i = 0;
                             foreach ($result as $value) {
-                                $i++;
-                                echo "<tr data-id=\"".$result['id']."\">
+                                
+                                echo "<tr data-id=\"".$result[$i]['id']."\">
                                         <td>".$i."</td>
-                                        <td>".$result[0]['nom']."</td>
-                                        <td>".$result[0]['lieu']."</td>
-                                        <td>".$result[0]['heure']."</td>
-                                        <td>".$result[0]['date']."</td>
+                                        <td>".$result[$i]['nom']."</td>
+                                        <td>".$result[$i]['lieu']."</td>
+                                        <td>".$result[$i]['heure']."</td>
+                                        <td>".$result[$i]['date']."</td>
                                      </tr>";
+                                $i++;
                             } ?>
                         </tbody>
                     </table>
