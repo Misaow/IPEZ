@@ -45,31 +45,10 @@
             <div class="maincontent">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 smallvid">
-                                <div class="smallvid-title">
-                                    <h3>Smartphone</h3>
-                                </div>
-                                <div class="smallvid-player">
-                                    <img width="100%" class="ex" src="<?php echo IMG_DIRECTORY ?>/smartphone.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-4 smallvid">
-                                <div class="smallvid-title">
-                                    <h3>Television</h3>
-                                </div>
-                                <div class="smallvid-player">
-                                    <img width="100%" class="ex" src="<?php echo IMG_DIRECTORY ?>/tv.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-4 smallvid">
-                                <div class="smallvid-title">
-                                    <h3>Consoles</h3>
-                                </div>
-                                <div class="smallvid-player">
-                                    <img width="100%" class="ex" src="<?php echo IMG_DIRECTORY ?>/GAME.jpg"/>
-                                </div>
-                            </div>
+                        <div class="row col-md-offset-1">
+                            <button type="button" class="custum-btn btn btn-lg col-md-3"> Présentation</button>
+                            <button type="button" class="custum-btn btn btn-lg col-md-3 col-md-offset-1"> Produits Phare</button>
+                            <button type="button" class="custum-btn btn btn-lg col-md-3 col-md-offset-1"> Newsletter</button> 
                         </div>
                     </div><!--column12-->
                 </div><!--row-->

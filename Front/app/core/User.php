@@ -81,7 +81,7 @@ class User
         {
             if(!empty($id))
             {
-                header("location:".WEBROOT."/admin/index.php");
+                header("location:".VIEWS_DIRECTORY."/index.php");
                 exit();
             }
         }

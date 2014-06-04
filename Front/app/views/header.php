@@ -1,6 +1,7 @@
 <?php
-define( 'ROOT', dirname(dirname( __DIR__ )) );
-include ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'defines.php';
+session_start();
+define('ROOT', dirname(dirname(__DIR__)));
+include ROOT . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'defines.php';
 include '../Autoloader.php';
 ?>
 <html>
@@ -38,10 +39,15 @@ include '../Autoloader.php';
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <a href="connexion.php">Connexion / Inscription</a>
+                            <?php if (!app\core\User::isLogged($_SESSION['id'])) { ?>
+                                <a href="connexion.php">Connexion / Inscription</a>
+                            <?php } else {
+                                ?>
+                                <a href="connexion.php?action=logout">Déconnexion</a>
+                            <?php } ?>
                         </li>
                     </ul>
                 </div><!--/.nav-collapse -->
+                <div class="col-md-4 col-md-offset-4 slogan"> "Les ventes privées High-Tech qui font tourner la tête" </div>
             </div>
         </div>
-        
