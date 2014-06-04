@@ -1,4 +1,5 @@
 <?php
 
 $produit = new app\core\Produit();
-$produit->getDescription();
+//$produit->getDescription();
+$produit->topVenteProduits();

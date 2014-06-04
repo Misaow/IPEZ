@@ -33,16 +33,16 @@ include '../Autoloader.php';
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">Accueil</a></li>
-                        <li><a href="">Gestion des Events</a></li>
-                        <li><a href="">Listing</a></li>
+                        <li><a href="Event.php">Gestion des Events</a></li>
+                        <li><a href="Participant.php">Listing</a></li>
                         <li><a href="">Envoi de Confirmation</a></li>
-                        <li><a href="">Export de Mail</a></li>
-                        <li><a href="">Produits</a></li>
+                        <li><a href="clients.php">Export de Mail</a></li>
+                        <li><a href="Produit.php">Produits</a></li>
                         <li><a href="">Gestion Utilisateurs</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <?php if (!empty($_SESSION['id'])) { ?>
+                            <?php if (empty($_SESSION['id'])) { ?>
                                 <a href="connexion.php">Connexion / Inscription</a>
                             <?php } else {
                                 ?>

@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 ?>
-<div class="container maincontent">
+<div class="container maincontent" style="margin-bottom: 30px;">
     <div class="header-wrapper">
         <div class="row">
             <div class="col-md-12 nogutter smallvid">

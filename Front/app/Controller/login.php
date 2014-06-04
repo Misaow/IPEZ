@@ -8,17 +8,12 @@ if (isset($_GET["action"]))
         
         session_destroy();
         header("Refresh: 3; URL=index.php");
-        
+        exit();
     }else{
         
         header("Refresh: 3; URL=index.php"); 
+        exit();
     }
-    // if action == logout
-        
-        // then destroy session
-        // redirection index 
-    // sinon 
-    //  rien & redirection index
 }
 app\core\User::isAlreadyLogged($id);
 if(!empty($Login))

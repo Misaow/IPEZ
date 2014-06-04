@@ -39,9 +39,12 @@ include CONTROLLER_DIRECTORY . '/login.php';
                                             <input type="password" name="Pwd" class="form-control" id="InputPwd" placeholder="Entrez votre mot de passe">
                                         </div>
                                     </div>
-                                    <div class="form-group col-sm-3">
+                                    <div class="form-group col-sm-12">
                                         <div class="form-group">
-                                            <p id="loginbox"><button type="submit" class="btn loginbtn btn-default">Envoyer</button></p>
+                                            <p id="loginbox">
+                                                <button type="submit" class="btn loginbtn btn-default">Se connecter</button> 
+                                                <a class="btn loginbtn btn-default" href="inscription.php"> S'inscrire</a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -67,9 +70,12 @@ include CONTROLLER_DIRECTORY . '/login.php';
                                         <input type="password" name="Pwd" class="form-control" id="InputPwd" placeholder="Entrez votre mot de passe">
                                     </div>
                                 </div>
-                                <div class="form-group col-sm-3">
+                                <div class="form-group col-sm-12">
                                     <div class="form-group">
-                                        <p id="loginbox"><button type="submit" class="btn loginbtn btn-default">Envoyer</button></p>
+                                        <p id="loginbox">
+                                            <button type="submit" class="btn loginbtn btn-default">Se connecter</button> 
+                                            <a class="btn loginbtn btn-default" href="inscription.php"> S'inscrire</a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

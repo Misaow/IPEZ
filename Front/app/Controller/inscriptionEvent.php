@@ -3,7 +3,7 @@
 $inscription = false;
 
 $TClient_id  = isset($_SESSION["id"]) ? $_SESSION["id"] : ""; 
-$TEvent_id   = isset($_POST["TEvent_id"]) ? $_POST["TEvent_id"] : "";
+$TEvent_id   = isset($_GET["inscription"]) ? $_GET["inscription"] : "";
 
 
 if((!empty($TClient_id)) && (!empty($TEvent_id))){

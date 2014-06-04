@@ -1,7 +1,7 @@
 <?php
 
 $TClient_id  = isset($_SESSION["id"]) ? $_SESSION["id"] : ""; 
-$TEvent_id = isset($_POST["TEvent_id"]) ? $_POST["TEvent_id"] : "";
+$TEvent_id = isset($_GET['desinscription']) ? $_GET['desinscription'] : "";
 
 $deleteparticipation = false;
 

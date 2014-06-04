@@ -19,9 +19,13 @@ class Client {
      *
      * @var array
      */
-    
     private $donnees = array();
     
+    
+     /**
+     * @var Database
+     */
+    protected $db  ;
 
     /**
      * Constructeur du client
@@ -30,9 +34,56 @@ class Client {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        $this->db = new \app\core\Database();
+        $this->db->connect();
     }
     
-
+/**
+ * retourne liste des clients
+ * @return type
+ */
+    public function getClients(){
+        $this->db = new \app\core\Database();
+        $this->db->select('tclient');
+        return $this->db->getResult();
+        
+    }
+    /**
+     * Return Client by id
+     * @param type $id
+     * @return type
+     */
+        public function getClientsById($id){
+        $this->db = new \app\core\Database();
+        $this->db->select('tclient', '*', null, 'id='.$id);
+        return $this->db->getResult();
+        
+    }
+    
+    /**
+     * Add a Client
+     * @param \app\core\Client $client
+     * @return type
+     */
+     public function addClient(Client $client){
+        $req = $this->db->insert("tclient", $client->getDonnees());
+        return $req;
+    }
+    
+    public function deleteClient($id) {
+        
+   return $this->db->delete('tclient', 'id='.$id);
+        
+    }
+    /**
+     * Update un Client, retourne si la requête à réussi
+     * @param \app\core\Client $client
+     * @return bool
+     */
+    public function updateClient(Client $client){
+        $client->setDonneesUp();
+        return $this->db->update('tclient', $client->getDonnees(), 'id='.$client->getId());
+    }
    /**
      * Set le Tableau $donnees pour l'update en base
      * @return \app\core\Client
@@ -43,8 +94,8 @@ class Client {
             'nom' => $this->getNom(),
             'prenom' => $this->getPrenom(),
             'newsletter' =>  $this->getNewsletter(),
-            'mdp' => $this->getMdp(),
-            
+            'mdp' => md5($this->getMdp()),
+
         );
         return $this;
     }
@@ -67,7 +118,7 @@ class Client {
             'nom' => $this->getNom(),
             'prenom' => $this->getPrenom(),
             'newsletter' =>  $this->getNewsletter(),
-            'mdp' => $this->getMdp(),
+            'mdp' => md5($this->getMdp()),
                
         );
         return $this;

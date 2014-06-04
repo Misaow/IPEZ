@@ -2,6 +2,20 @@
 $id = isset($_POST["id"]) ? $_POST["id"] : "";
 $Login = isset($_POST["login"]) ? $_POST["login"] : "";
 $Pwd = isset($_POST["Pwd"]) ? $_POST["Pwd"] : "";
+if (isset($_GET["action"]))
+{
+    if ( $_GET["action"] == "logout"){
+        
+        session_destroy();
+        header("Refresh: 3; URL=index.php");
+        exit();
+        
+    }else{
+        
+        header("Refresh: 3; URL=index.php");
+        exit();
+    }
+}
 app\core\User::isAlreadyLogged($id);
 if(!empty($Login))
 {

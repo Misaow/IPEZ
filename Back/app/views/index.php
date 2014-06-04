@@ -1,15 +1,16 @@
 <?php
 include 'header.php';
+var_dump($_SESSION);
 ?>
 <div class="container maincontent">
     <div class="header-wrapper">
         <div class="row">
             <div class="col-md-12 smallvid">
                 <div class="smallvid-title">
-                    <h3>Coucouille bienvenue sur le panneau admin</h3>
+                    <h3> Bienvenur sur le panneau admin</h3>
                 </div>
                 <div class="smallvid-player" style="height: auto;">
-
+                    <p>Dans cette interface vous pourrez gérer les ventes privées que vous organisez :</p><br>
                 </div>
             </div>
         </div>
