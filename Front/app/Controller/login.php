@@ -2,6 +2,24 @@
 $id = isset($_SESSION["id"]) ? $_SESSION["id"] : "";
 $Login = isset($_POST["Login"]) ? $_POST["Login"] : "";
 $Pwd = isset($_POST["Pwd"]) ? $_POST["Pwd"] : "";
+if (isset($_GET["action"]))
+{
+    if ( $_GET["action"] == "logout"){
+        
+        session_destroy();
+        header("Refresh: 3; URL=index.php");
+        
+    }else{
+        
+        header("Refresh: 3; URL=index.php"); 
+    }
+    // if action == logout
+        
+        // then destroy session
+        // redirection index 
+    // sinon 
+    //  rien & redirection index
+}
 app\core\User::isAlreadyLogged($id);
 if(!empty($Login))
 {
