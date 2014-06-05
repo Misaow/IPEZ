@@ -67,7 +67,6 @@ class HistoriqueVente {
      */
     public function setDonnees() {
         $this->donnees = array(
-            'id' => '',
             'TEvent_id' => $this->getTEvent_id(),
             'TProduit_id'=> $this->getTProduit_id(),
             'nb_Vente'=>  $this->getNb_vente()

@@ -14,9 +14,12 @@ if (!empty($_POST['type'])) {
         include CONTROLLER_DIRECTORY . '/addTypeProduit.php';
     } else if ($_POST['type'] == "deletebind") {
         include CONTROLLER_DIRECTORY . '/deleteTypeProduit.php';
+    } else if ($_POST['type'] == "editvente") {
+        include CONTROLLER_DIRECTORY . '/addHistoriqueVente.php';
     }
 }
 include CONTROLLER_DIRECTORY . '/displayTypeProduit.php';
+include CONTROLLER_DIRECTORY . '/displayEvent.php';
 include CONTROLLER_DIRECTORY . '/displayProduct.php';
 /* FORM SAMPLE :
 
@@ -45,7 +48,6 @@ function search($array, $key, $value) {
 
     return $results;
 }
-
 ?>
 
 
@@ -169,33 +171,53 @@ function search($array, $key, $value) {
                     </form>
                 </div>
             </div>
-
         </div>
-        <div class="row">
-            <div class="col-md-12 smallvid">
-                <div class="smallvid-title">
-                    <h3>    Edition des ventes lors des soirées    </h3>
-                </div>
-                <div class="smallvid-player" style="height: auto;">
-                    <form method="POST" action="Produit.php" role="form">
-                        <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
-                            <div class="form-bloc">
-                                <select class="form-control" name="idevent">
-                                    <?php foreach ($products as $value) { ?> 
-                                        <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
-                                    <?php } ?>
-                                </select>
-                                <select class="form-control" name="idproduit">
-                                    <?php foreach ($products as $value) { ?> 
-                                        <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
-                                    <?php } ?>
-                                </select>
-                                <input name="type" value="editvente" class="hidden"/>
-                                <button type="submit" class="btn loginbtn btn-default center-block">Supprimer</button>
-                            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 smallvid col-md-offset-0">
+            <div class="smallvid-title">
+                <h3>    Edition des ventes lors des soirées    </h3>
+            </div>
+            <div class="smallvid-player" style="height: auto;">
+                <form method="POST" action="Produit.php" role="form">
+                    <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
+                        <div class="form-bloc">
+                            <select class="form-control" name="idevent" required>
+                                <?php foreach ($events as $value) { ?> 
+                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <select class="form-control" name="idproduit" required>
+                                <?php foreach ($products as $value) { ?> 
+                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <input class="form-control" placeholder="Nombre de vente" name="valuevente" required/>
+                            <input name="type" value="editvente" class="hidden"/>
+                            <button type="submit" class="btn loginbtn btn-default center-block">Ajouter</button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+<div class="col-md-4 smallvid col-md-offset-4">
+            <div class="smallvid-title">
+                <h3>    Suppression des ventes lors des soirées    </h3>
+            </div>
+            <div class="smallvid-player" style="height: auto;">
+                <form method="POST" action="Produit.php" role="form">
+                    <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
+                        <div class="form-bloc">
+                            <select class="form-control" name="idevent" required>
+                                <?php foreach ($events as $value) { ?> 
+                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <input name="type" value="deletevente" class="hidden"/>
+                            <button type="submit" class="btn loginbtn btn-default center-block">Ajouter</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
