@@ -8,7 +8,9 @@ $result = $listparticipant->getListParticipant($TEvent_id);
 $i = 0;
 foreach ($result as $value) {
                                 
-      $to = $to + $result[$i]['mail'].' ,'  ;                          
+      $to = $result[$i]['mail'].' ,'.$to  ;  
+
+          $i++;        
 }
 
      // Sujet
