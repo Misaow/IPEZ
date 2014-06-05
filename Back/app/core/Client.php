@@ -235,5 +235,7 @@ class Client {
     public function setNewsletter($newsletter) {
         $this->newsletter = $newsletter;
     }
+    
+
 
 }

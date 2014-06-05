@@ -61,7 +61,8 @@ $tabproduit2 = array(
 
 );
 
-//$client = new app\core\Client($tab);
+$client = new app\core\Client($tab);
+$client->WriteCsv(2);
 //$client->addClient($client);
 //$client2 = new app\core\Client($tab2);
 //$client2->addClient($client2);
