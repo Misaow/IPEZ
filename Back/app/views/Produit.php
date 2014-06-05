@@ -45,6 +45,7 @@ function search($array, $key, $value) {
 
     return $results;
 }
+
 ?>
 
 
@@ -169,6 +170,33 @@ function search($array, $key, $value) {
                 </div>
             </div>
 
+        </div>
+        <div class="row">
+            <div class="col-md-12 smallvid">
+                <div class="smallvid-title">
+                    <h3>    Edition des ventes lors des soirées    </h3>
+                </div>
+                <div class="smallvid-player" style="height: auto;">
+                    <form method="POST" action="Produit.php" role="form">
+                        <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
+                            <div class="form-bloc">
+                                <select class="form-control" name="idevent">
+                                    <?php foreach ($products as $value) { ?> 
+                                        <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                    <?php } ?>
+                                </select>
+                                <select class="form-control" name="idproduit">
+                                    <?php foreach ($products as $value) { ?> 
+                                        <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                    <?php } ?>
+                                </select>
+                                <input name="type" value="editvente" class="hidden"/>
+                                <button type="submit" class="btn loginbtn btn-default center-block">Supprimer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 

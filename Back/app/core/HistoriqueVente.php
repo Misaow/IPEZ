@@ -13,8 +13,8 @@ class HistoriqueVente {
     private $TProduit_id;
     private $nb_vente;
     
-    
-        /**
+    private $db;
+    /**
      * Constructeur de historique
      * @param type $valeur
      */
@@ -25,7 +25,10 @@ class HistoriqueVente {
                          $this->db->connect();
     }
     
-    
+    public function getall() {
+        $result = $this->db->select("tparticipation","*");
+        return $result;
+    }
     public function getId() {
         return $this->id;
     }
