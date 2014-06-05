@@ -37,7 +37,7 @@ include '../Autoloader.php';
                         <li><a href="Participant.php">Listing</a></li>
                         <li><a href="">Envoi de Confirmation</a></li>
                         <li><a href="Produit.php">Produits</a></li>
-                        <li><a href="">Gestion Utilisateurs</a></li>
+                        <li><a href="utilisateur.php">Gestion Utilisateurs</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li>

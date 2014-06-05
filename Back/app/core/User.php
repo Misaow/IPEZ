@@ -170,6 +170,7 @@ class User
     {
         $this->db = new \app\core\Database();
         $this->db->connect();
+
         $check = $this->db->select($this->table, "*", NULL, "login = " . $this->login);
         if (empty($check))
         {
@@ -228,7 +229,11 @@ class User
         $this->id = $id;
         return $this;
     }
-
+    public function setTable($table)
+    {
+        $this->table = $table;
+        return $this;
+    }
     public function setlogin($login)
     {
         $this->login = $login;
