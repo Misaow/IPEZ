@@ -151,7 +151,7 @@ class Produit {
  * @return type
  */
     public function deleteProduit($id) {
-        
+  $this->db->delete('thistoriquevente', 'TProduit_id='.$id);
    return $this->db->delete('tproduit', 'id='.$id);
         
     }
