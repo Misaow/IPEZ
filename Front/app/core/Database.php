@@ -191,7 +191,7 @@ class Database
             $q .= ' LIMIT ' . $limit;
         }
         $this->myQuery = $q; // Pass back the SQL
- 
+        echo $q;
         // Check to see if the table exists
         // if ($this->tableExists($table))
         // {

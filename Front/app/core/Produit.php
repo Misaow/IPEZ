@@ -28,6 +28,8 @@ class Produit {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        $this->db = new \app\core\Database();
+        $this->db->connect();
     }
 
     /**
@@ -119,18 +121,17 @@ class Produit {
      */
     public function topVenteProduits() {
 
-        //$this->db = new \app\core\Database();
-        //$this->db->select('tevent, thistoriquevente',"*",NULL, 'DATE < NOW()', 'thistoriquevente.nb_vente DESC', '10');
-        //return $this->db->getResult();
+        $this->db->select('tevent, thistoriquevente',"*",NULL, 'DATE < NOW()', 'thistoriquevente.nb_vente DESC', '10');
+        $test =  $this->db->getResult();
         // Test de la fonction avec un test => TEST OK 
-        $test = array(
+        /*$test = array(
             array('id' => '1', 'nom' => 'Nexus', 'description' => 'X', 'nb_stock' => '12', 'nb_vente' => '1', 'date' => '2014/07/26'),
             array('id' => '2', 'nom' => 'IPHONE', 'description' => 'Y', 'nb_stock' => '15', 'nb_vente' => '3', 'date' => '2014/05/25')
-        );
+        );*/
         usort($test, array($this, "date_compare"));
         $result = array();
         foreach ($test as $value) {
-            if (count($test) < 10) {
+            if (count($result) < 10) {
                 array_push($result, $value);
             }
         }
