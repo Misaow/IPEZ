@@ -163,6 +163,17 @@ public function deleteParticipation($TClient_id,$TEvent_id) {
         $this->TEvent_id = $TEvent_id;
     }
 
+    public function getListParticipant($TEvent_id) {
+        
+        $this->db = new \app\core\Database();
+        $this->db->select('tclient,tparticipation, tevent', 'mail', null, 'tclient.id = tparticipation.TClient_id AND tevent.id= tparticipation.TEvent_id AND tparticipation.TEvent_id='.$TEvent_id);
+        return $this->db->getResult();
+    }
+    
+    /**
+     * Ecrit la liste des participants dans un fichie CSV
+     * @param type $TEvent_id
+     */
 function WriteCsv($TEvent_id) {
 
 // configuration de la base de données base de données
