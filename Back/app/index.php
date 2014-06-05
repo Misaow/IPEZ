@@ -75,9 +75,9 @@ $tabproduit2 = array(
 //var_dump($client->getClientsById(1));
 
 
-$produit = new app\core\Produit($tabproduit);
-$produit->setId(12);
-var_dump($produit->getDescription());
+//$produit = new app\core\Produit($tabproduit);
+//$produit->setId(12);
+//var_dump($produit->getDescription());
 
 //$produit->deleteProduit(10 );
 //$produit = new app\core\Produit($tabproduit);
@@ -87,6 +87,7 @@ var_dump($produit->getDescription());
 //var_dump($produit->topVenteProduits());
 //var_dump($produit->getProduitById(1));
 //var_dump($produit->getProduits());
+
 
 
 

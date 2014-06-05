@@ -116,7 +116,7 @@ public function deleteParticipation($TClient_id,$TEvent_id) {
     public function setDonneesUp() {
         $this->donnees = array(
              'TClient_id' => $this->getTClient_id(),
-            'TEvent_id'=> $this->getTEvent_id()      
+             'TEvent_id'=> $this->getTEvent_id()      
         );
         return $this;
     }

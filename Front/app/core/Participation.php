@@ -27,6 +27,10 @@ class Participation {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        
+             
+        $this->db = new \app\core\Database();
+        $this->db->connect();
     }
     
     
@@ -114,6 +118,21 @@ class Participation {
         $this->TEvent_id = $TEvent_id;
     }
 
+        public function addParticipation(Participation $participation){
 
+        $req = $this->db->insert("tparticipation", $participation->getDonnees());
+        return $req;
+    }
     
+        /**
+     * Delete participation by Id
+     * @param type $TClient_id
+     * @param type $TEvent_id
+     * @return type
+     */
+public function deleteParticipation($TClient_id,$TEvent_id) {
+        
+   return $this->db->delete('tparticipation', 'TClient_id='.$TClient_id.' AND TEvent_id='.$TEvent_id);
+        
+    }
 }

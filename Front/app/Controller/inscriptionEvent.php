@@ -11,7 +11,7 @@ if((!empty($TClient_id)) && (!empty($TEvent_id))){
     $participation = new \app\core\Participation();
     $participation->setTClient_id($TClient_id);
     $participation->setTEvent_id($TEvent_id);
-    
+    $participation->setDonnees();
     $participation->addParticipation($participation);
 
     $inscription = true;

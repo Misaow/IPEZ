@@ -4,7 +4,7 @@ include CONTROLLER_DIRECTORY . '/listEvent.php';
 if (!empty($_GET['inscription'])) {
     include CONTROLLER_DIRECTORY . '/inscriptionEvent.php';
 } else if (!empty($_GET['desinscription'])) {
-    include CONTROLLER_DIRECTORY . '/desincriptionEvent.php';
+    include CONTROLLER_DIRECTORY . '/desinscriptionEvent.php';
 }
 ?>
 <div class="container maincontent">
