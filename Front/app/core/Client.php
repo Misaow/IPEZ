@@ -84,7 +84,15 @@ class Client {
         $client->setDonneesUp();
         return $this->db->update('tclient', $client->getDonnees(), 'id='.$client->getId());
     }
-   /**
+    public function setDonneesNewsletter()
+    {
+        $this->donnees = array(
+            'newsletter' =>  $this->getNewsletter()
+        );
+        return $this;
+    }
+
+    /**
      * Set le Tableau $donnees pour l'update en base
      * @return \app\core\Client
      */
