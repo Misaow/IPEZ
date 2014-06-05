@@ -1,6 +1,10 @@
 <?php include 'header.php';
-\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']);
+$idA = isset($_SESSION['id']) ? $_SESSION['id'] : "";
+$logA = isset($_SESSION['login']) ? $_SESSION['login'] : "";
+\app\core\User::isAdmin($idA, $logA);
 // afficher les clients (à liste) et choisir soirée => export des mails
+
+include CONTROLLER_DIRECTORY . '/displayEvent.php';
 ?>
 
 <div class="container maincontent">
@@ -14,7 +18,9 @@
                     <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
                         <div class="form-bloc">
                             <select class="form-control" name="" style="display: inline-block;width: 50%">
-                                <option>liste des soirées</option>
+                                <?php foreach ($events as $value) { ?> 
+                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                <?php } ?>
                             </select>
                             <button type="submit" class="btn loginbtn btn-default">Export des mails</button>
                         </div>

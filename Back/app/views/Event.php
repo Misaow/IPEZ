@@ -1,6 +1,8 @@
 <?php
 include 'header.php';
-\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']);
+$idA = isset($_SESSION['id']) ? $_SESSION['id'] : "";
+$logA = isset($_SESSION['login']) ? $_SESSION['login'] : "";
+\app\core\User::isAdmin($idA, $logA);
 if (!empty($_POST['type'])) {
     if ($_POST['type'] == "add") {
         include CONTROLLER_DIRECTORY . '/addEvent.php';

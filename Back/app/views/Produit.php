@@ -1,6 +1,8 @@
 <?php
 include 'header.php';
-\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']);
+$idA = isset($_SESSION['id']) ? $_SESSION['id'] : "";
+$logA = isset($_SESSION['login']) ? $_SESSION['login'] : "";
+\app\core\User::isAdmin($idA, $logA);
 /* FORM SAMPLE :
 
   <form method="POST" action="#" role="form">

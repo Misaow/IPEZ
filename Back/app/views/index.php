@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+var_dump($_SESSION);
 ?>
 <div class="container maincontent">
     <div class="header-wrapper">

@@ -1,5 +1,13 @@
 <?php include 'header.php';
-\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']);
+$idA = isset($_SESSION['id']) ? $_SESSION['id'] : "";
+$logA = isset($_SESSION['login']) ? $_SESSION['login'] : "";
+\app\core\User::isAdmin($idA, $logA);
+if(isset($_POST["type"]))
+{
+    if($_POST["type"] == "displayclient")
+        include CONTROLLER_DIRECTORY.DS.'displayClientEvent.php';
+}
+include CONTROLLER_DIRECTORY . '/displayEvent.php';
 ?>
 
 <div class="container maincontent">
@@ -9,12 +17,15 @@
                 <h3>    Listing des participants    </h3>
             </div>
             <div class="smallvid-player" style="height: auto;">
-                <form method="POST" action="#" role="form">
+                <form method="POST" action="Participant.php" role="form">
                     <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
                         <div class="form-bloc">
                             <select class="form-control" name="" style="display: inline-block;width: 50%">
-                                <option>liste des soirées</option>
+                                <?php foreach ($events as $value) { ?> 
+                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                <?php } ?>
                             </select>
+                            <input name="type" value="displayclient"/>
                             <button type="submit" class="btn loginbtn btn-default">Chercher la liste</button>
                         </div>
                     </div>
