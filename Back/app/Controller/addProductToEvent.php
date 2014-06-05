@@ -10,7 +10,7 @@ if((!empty($TEvent_id)) && (!empty($TTypeProduit_id))){
     $typeevent = new \app\core\TypeEvent();
     $typeevent->setTEvent_id($TEvent_id);
     $typeevent->setTTypeProduit_id($TTypeProduit_id);
-    
+    $typeevent->setDonnees();
     $typeevent->addTypeEvent($typeevent);
    
     $addproduittoevent = true;

@@ -135,7 +135,7 @@ class Produit {
                 array_push($result, $value);
             }
         }
-        var_dump($result);
+        return $result;
     }
     // Don't touch this 
     function date_compare($a, $b) {

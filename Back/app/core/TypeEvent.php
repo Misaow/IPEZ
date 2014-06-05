@@ -16,6 +16,7 @@ class TypeEvent {
      *
      * @var array
      */
+    private $db;
     private $donnees = array();
 
     /**
@@ -25,27 +26,31 @@ class TypeEvent {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        $this->db = new \app\core\Database();
+        $this->db->connect();
     }
 
+
+
     public function getTypeEvent() {
-        $this->db = new \app\core\Database();
+
         $this->db->select('ttypeevent');
         return $this->db->getResult();
     }
 
     public function getTypeEventById($event_id, $produit_id) {
         $this->db = new \app\core\Database();
-        $this->db->select('ttypeevent', '*', null, 'TEvent_id=' . $event_id, 'TTypeProduit_id=' . $produit_id);
+        $this->db->select('ttypeevent', '*', null, 'TEvent_id=' . $event_id, ' AND TTypeProduit_id=' . $produit_id);
         return $this->db->getResult();
     }
 
     public function addTypeEvent(TypeEvent $typeEvent) {
-        $req = $this->db->insert("ttypeevent", $typeevent->getDonnees());
+        $req = $this->db->insert("ttypeevent", $typeEvent->getDonnees());
         return $req;
     }
 
     public function deleteTypeEvent($event_id, $produit_id) {
-        return $this->db->delete('ttypeevent', 'TEvent_id=' . $event_id, 'TTypeProduit_id=' . $produit_id);
+        return $this->db->delete('ttypeevent', 'TEvent_id=' . $event_id .' AND TTypeProduit_id=' . $produit_id);
     }
 
     /**

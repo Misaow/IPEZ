@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-include CONTROLLER_DIRECTORY.'/highlightDetailProduct.php';
+include CONTROLLER_DIRECTORY . '/highlightDetailProduct.php';
 ?>
 
 <script type="text/javascript" src="<?php echo JS_DIRECTORY ?>/snap.svg-min.js"></script>
@@ -12,19 +12,21 @@ include CONTROLLER_DIRECTORY.'/highlightDetailProduct.php';
             </div>
             <div class="smallvid-player" style="height: auto;">
                 <section id="grid" class="grid clearfix">
-                    <?php /* foreach de ce que je récupère */ ?>
-                    <a href="#" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
-                        <figure>
-                            <img src="../content/images/2.png" />
-                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
-                            <figcaption>
-                                <h2>Crystalline</h2>
-                                <p style="color:#424242;">Soko radicchio bunya nuts gram dulse.</p>
-                                <button>View</button>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    
+                    <?php
+                    foreach ($result as $value) {
+                        ?>
+                        <a href="highlight.php?detail=<?php echo $value['id'] ?>" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
+                            <figure>
+                                <img src="../content/images/2.png" />
+                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
+                                <figcaption>
+                                    <h2><?php echo $value['nom'] ?> </h2>
+                                    <p style="color:#424242;"><?php echo $value['description'] ?> </p>
+                                    <button>En voir Plus</button>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    <?php } ?>
 
                 </section>
             </div>

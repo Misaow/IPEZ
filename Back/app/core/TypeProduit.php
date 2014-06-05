@@ -26,12 +26,14 @@ class TypeProduit {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
+        $this->db = new \app\core\Database();
+        $this->db->connect();
     }
     
     
      public function getTypeProduit() {
-        $this->db = new \app\core\Database();
-        $this->db->select('ttypeproduit');
+        
+        $this->db->select('ttypeproduit','*');
         return $this->db->getResult();
     }
 

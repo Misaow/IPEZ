@@ -58,7 +58,6 @@ class Event {
      */
     public function setDonnees() {
         $this->donnees = array(
-            'id' => '',
             'nom'=> $this->getNom(),
             'description'=> $this->getDescription(),
             'date'=> $this->getDate(),
@@ -75,7 +74,6 @@ class Event {
      * @return type
      */
         public function updateEvent(Event $event){
-        $event->setDonneesUp();
         return $this->db->update('tevent', $event->getDonnees(), 'id='.$event->getId());
     }
     /**
@@ -102,9 +100,7 @@ class Event {
      * @return type
      */
     public function getEventBydate(){
-        
-        $this->db = new \app\core\Database();
-
+                
         $this->db->select('tevent','*',null, 'date >= NOW()');
         return $this->db->getResult();    
     }
@@ -146,7 +142,6 @@ class Event {
      */
     public function setDonneesUp() {
         $this->donnees = array(
-             'id' => $this->getId(),
             'nom'=> $this->getNom(),
             'description'=> $this->getDescription(),
             'date'=> $this->getDate(),

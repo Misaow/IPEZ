@@ -22,6 +22,7 @@ if(!empty($Login))
     
     $user = new app\core\User();
     $userlogged = false;
+    
     if($user->LogOn($Login, $Pwd))
     {
         $userlogged = true;

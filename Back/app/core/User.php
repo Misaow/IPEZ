@@ -39,9 +39,8 @@ class User
     {
         $this->db = new \app\core\Database();
         $this->db->connect();
-            $this->db->select('tadmin', 'id,is_admin', NULL, 'login =\'' . $login . '\' AND mdp =\'' . md5($mdp) .'\'');
+        $this->db->select('tadmin', 'id,is_admin', NULL, 'login =\'' . $login . '\' AND mdp =\'' . md5($mdp) .'\'');
         $check = $this->db->getResult();
-       
         if (!empty($check))
         {
             $_SESSION['login'] = $login;
@@ -67,7 +66,7 @@ class User
             }
         }
         // Modifier 
-        header("location:".WEBROOT."/admin/login.php");
+        header("location:".WEBROOT . DS . 'app' . DS ."views/connexion.php");
         exit();
         //return FALSE;
     }
@@ -105,7 +104,7 @@ class User
             return TRUE;
         }
         else{
-            header("location:".WEBROOT."/admin/index.php");
+            header("location:".WEBROOT . DS . 'app' . DS ."views/connexion.php");
             exit();
         }
     }

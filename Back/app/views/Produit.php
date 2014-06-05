@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']);
 /* FORM SAMPLE :
 
   <form method="POST" action="#" role="form">

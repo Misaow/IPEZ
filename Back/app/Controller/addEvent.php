@@ -16,6 +16,7 @@ if(!empty($nom)){
     $event->setHeure($heure);
     $event->setNom($nom);
     $event->setLieu($lieu);
+    $event->setDonnees();
     $event->addEvent($event);
     
     $addevent = true;

@@ -1,4 +1,5 @@
 <?php include 'header.php';
+\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']);
 ?>
 
 <div class="container maincontent">
