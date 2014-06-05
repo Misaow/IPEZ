@@ -1,4 +1,5 @@
 <?php
+
 $TEvent_id = isset($_POST["$TEvent_id"]) ? $_POST["$TEvent_id"] : "";
 
 
@@ -7,17 +8,17 @@ $result = $listparticipant->getListParticipant($TEvent_id);
 
 $i = 0;
 foreach ($result as $value) {
-                                
-      $to = $result[$i]['mail'].' ,'.$to  ;  
 
-          $i++;        
+    $to = $result[$i]['mail'] . ' ,' . $to;
+
+    $i++;
 }
 
-     // Sujet
-     $subject = 'Confirmation de votre participation à notre vente Privé';
+// Sujet
+$subject = 'Confirmation de votre participation à notre vente Privé';
 
-     // message
-     $message = '
+// message
+$message = '
      <html>
       <head>
        <title>Confirmation de votre participation à notre vente Privé</title>
@@ -29,18 +30,18 @@ foreach ($result as $value) {
      </html>
      ';
 
-     // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-     $headers  = 'MIME-Version: 1.0' . "\r\n";
-     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+// Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+$headers = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-     // En-têtes additionnels
-     $headers .= 'To :' .$to. "\r\n";
-     $headers .= 'From: IPEZ <contact@ipez.com>' . "\r\n";
+// En-têtes additionnels
+$headers .= 'To :' . $to . "\r\n";
+$headers .= 'From: IPEZ <contact@ipez.com>' . "\r\n";
 
 
-     // Envoi
-     mail($to, $subject, $message, $headers);
-     
-     
+// Envoi
+mail($to, $subject, $message, $headers);
+
+
 
 
