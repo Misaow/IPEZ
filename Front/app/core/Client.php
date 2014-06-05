@@ -113,7 +113,6 @@ class Client {
      */
     public function setDonnees() {
         $this->donnees = array(
-            'id' => '',
             'mail' =>  $this->getMail(),
             'nom' => $this->getNom(),
             'prenom' => $this->getPrenom(),

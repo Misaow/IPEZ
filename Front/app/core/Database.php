@@ -249,6 +249,7 @@ class Database
         if ($this->tableExists($this->db_prefix.$table))
         {
             $sql = 'INSERT INTO `' . $this->db_prefix.$table . '` (`' . implode('`, `', array_keys($params)) . '`) VALUES ("' . implode('", "', $params) . '")';
+            echo $sql;
             $this->myQuery = $sql; // Pass back the SQL
             // Make the query to insert to the database
             if ($ins = @mysql_query($sql))

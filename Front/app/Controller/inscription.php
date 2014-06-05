@@ -14,7 +14,9 @@ if((!empty($nom))&& (!empty($email)) && (!empty($mdp)))
      $client->setNom($nom);
      $client->setPrenom($prenom);
      $client->setMdp($mdp);
-     
-     $client->addClient($client);
+     $client->setNewsletter(0);
+     $client->setDonnees();
+     if($client->addClient($client)){
      $clientcreate = true;
+     }
 }
