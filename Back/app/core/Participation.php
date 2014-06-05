@@ -83,7 +83,6 @@ public function deleteParticipation($TClient_id,$TEvent_id) {
      * @return type
      */
      public function getParticipationById($id){
-        $this->db = new \app\core\Database();
         $this->db->select('tparticipation', '*', null, 'id='.$id);
         return $this->db->getResult();
         
@@ -169,7 +168,11 @@ public function deleteParticipation($TClient_id,$TEvent_id) {
         $this->db->select('tclient,tparticipation, tevent', 'mail', null, 'tclient.id = tparticipation.TClient_id AND tevent.id= tparticipation.TEvent_id AND tparticipation.TEvent_id='.$TEvent_id);
         return $this->db->getResult();
     }
-    
+    public function getListParticipantByEvt($TEvent_id) {
+        
+        $this->db->select('tclient,tparticipation, tevent', '*', null, 'tclient.id = tparticipation.TClient_id AND tevent.id= tparticipation.TEvent_id AND tparticipation.TEvent_id='.$TEvent_id);
+        return $this->db->getResult();
+    }
     /**
      * Ecrit la liste des participants dans un fichie CSV
      * @param type $TEvent_id

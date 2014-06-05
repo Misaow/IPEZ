@@ -54,7 +54,6 @@ class Client {
      * @return type
      */
         public function getClientsById($id){
-        $this->db = new \app\core\Database();
         $this->db->select('tclient', '*', null, 'id='.$id);
         return $this->db->getResult();
         

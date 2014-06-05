@@ -8,6 +8,7 @@ if(isset($_POST["type"]))
         include CONTROLLER_DIRECTORY.DS.'displayClientEvent.php';
 }
 include CONTROLLER_DIRECTORY . '/displayEvent.php';
+$csvid = !empty($_POST['id']) ? $_POST['id'] : "" ;
 ?>
 
 <div class="container maincontent">
@@ -20,13 +21,14 @@ include CONTROLLER_DIRECTORY . '/displayEvent.php';
                 <form method="POST" action="Participant.php" role="form">
                     <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
                         <div class="form-bloc">
-                            <select class="form-control" name="" style="display: inline-block;width: 50%">
+                            <select class="form-control" name="id" style="display: inline-block;width: 50%">
                                 <?php foreach ($events as $value) { ?> 
                                     <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
                                 <?php } ?>
                             </select>
-                            <input name="type" value="displayclient"/>
+                            <input name="type" class="hidden" value="displayclient"/>
                             <button type="submit" class="btn loginbtn btn-default">Chercher la liste</button>
+                            <a class="btn loginbtn btn-default" href="<?php echo WEBROOT.DS.'app'.DS.'controller'.DS.'csv.php?id='.$csvid?>">Exporter les mails</a>
                         </div>
                     </div>
                     <div class="table-responsive" style="margin: 30px">
@@ -46,13 +48,13 @@ include CONTROLLER_DIRECTORY . '/displayEvent.php';
                                 $i = 0;
                                 if (isset($result)) {
                                     foreach ($result as $value) {
-
-                                        echo "<tr data-id=\"" . $result[$i]['id'] . "\">
+                                        $newsletter = $value['newsletter'] == 0 ? "Non abonné" : "Abonné";
+                                        echo "<tr data-id=\"" . $value['id'] . "\">
                                         <td>" . $i . "</td>
-                                        <td>" . $result[$i][''] . "</td>
-                                        <td>" . $result[$i][''] . "</td>
-                                        <td>" . $result[$i][''] . "</td>
-                                        <td>" . $result[$i][''] . "</td>
+                                        <td>" . $value['nom'] . "</td>
+                                        <td>" . $value['prenom'] . "</td>
+                                        <td>" . $value['mail'] . "</td>
+                                        <td>" . $newsletter . "</td>
                                      </tr>";
                                         $i++;
                                     }
