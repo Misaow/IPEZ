@@ -63,7 +63,7 @@ class Produit {
     public function __construct($valeur = array()) {
         if (!empty($valeur))
             $this->init($valeur);
-                        $this->db = new \app\core\Database();
+        $this->db = new \app\core\Database();
         $this->db->connect();
     }
     
@@ -170,7 +170,7 @@ class Produit {
      * @return bool
      */
     public function updateProduit(Produit $produit){
-        $produit->setDonneesUp();
+       
         return $this->db->update('tproduit', $produit->getDonnees(), 'id='.$produit->getId());
     }
     

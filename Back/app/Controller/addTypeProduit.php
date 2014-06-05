@@ -11,7 +11,7 @@ if(!empty($nom)){
     $typeproduit = new app\core\TypeProduit();
     $typeproduit->setDescription($description);
     $typeproduit->setNom($nom);
-   
+    $typeproduit->setDonnees();
     $typeproduit->addTypeProduit($typeproduit);
     
     

@@ -1,6 +1,6 @@
 <?php
 
-$id = isset($_POST["id"]) ? $_POST["id"] : "";
+$id = isset($_POST["TTypeProduit_id"]) ? $_POST["TTypeProduit_id"] : "";
 
  $deletetypeproduit = false;
 if(!empty($id) && (\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']) )){
