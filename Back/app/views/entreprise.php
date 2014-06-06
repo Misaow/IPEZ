@@ -3,7 +3,6 @@ include 'header.php';
 if(!empty($_POST["text"])){
 //include CONTROLLER_DIRECTORY . '/login.php';
 }
-}
 ?>
 
 <div class="container maincontent">
@@ -15,14 +14,7 @@ if(!empty($_POST["text"])){
             <div class="smallvid-player" style="height: auto;">
 
                 <?php
-                if (!empty($Login)) {
-                    if ($userlogged) {
-                        echo'<div class="form-group col-sm-12">';
-                        echo'<div class="alert alert-success" id="alertbox">Authentification réussie. Vous allez être redirigé...</div>';
-                        echo'</div>';
-                        header("Refresh: 3; URL=index.php");
-                        exit();
-                    } else {
+                if (!empty($register)) {
                         ?>
                         <div class="form-group col-sm-12">
                             <div class="alert alert-danger" id="alertbox">Une erreur s\'est produite lors de l\'authentification. Veuillez réessayer.</div>
@@ -34,7 +26,7 @@ if(!empty($_POST["text"])){
                                     <!-- Nom -->
                                     <div class="form-group col-sm-12">
                                         <div class="form-group">
-                                            <input type="textarea" name="text" class="form-control" id="InputLogin" placeholder="Entrez votre présentation d'entreprise">
+                                            <textarea  name="text" class="form-control" id="" placeholder="Entrez votre présentation d'entreprise"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-3">
@@ -47,7 +39,7 @@ if(!empty($_POST["text"])){
                         </form>
                         <?php
                     }
-                } else {
+                    else {
                     ?>
 
                     <form method="POST" action="entreprise.php" role="form">
@@ -57,7 +49,7 @@ if(!empty($_POST["text"])){
                                     <!-- Nom -->
                                     <div class="form-group col-sm-12">
                                         <div class="form-group">
-                                            <input type="textarea" name="text" class="form-control" id="InputLogin" placeholder="Entrez votre présentation d'entreprise">
+                                            <textarea  name="text" class="form-control" id="" placeholder="Entrez votre présentation d'entreprise"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-3">
