@@ -51,7 +51,7 @@ function search($array, $key, $value) {
 <div class="container maincontent">
 
     <div class="row">
-        <div class="col-md-5 smallvid">
+        <div class="col-md-4 smallvid">
             <div class="smallvid-title">
                 <h3>    Ajouter un Evenement    </h3>
             </div>
@@ -71,7 +71,27 @@ function search($array, $key, $value) {
                 </form>
             </div>
         </div>
-        <div class="col-md-5 smallvid col-md-offset-2">
+        <div class="col-md-4 smallvid col-md-offset-0">
+            <div class="smallvid-title">
+                <h3>    Supprimer un Evenement    </h3>
+            </div>
+            <div class="smallvid-player" style="height: auto;">
+                <form method="POST" action="Event.php" role="form">
+                    <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
+                        <div class="form-bloc">
+                            <select class="form-control" name="id">
+                                <?php foreach ($events as $value) { ?> 
+                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <input name="type" value="delete" class="hidden"/>
+                            <button type="submit" class="btn loginbtn btn-default center-block">Envoyer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 smallvid col-md-offset-0">
             <div class="smallvid-title">
                 <h3>    Modifier un Evenement    </h3>
             </div>
@@ -98,7 +118,7 @@ function search($array, $key, $value) {
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
-        <div class="col-md-3 smallvid">
+        <div class="col-md-4 smallvid">
             <div class="smallvid-title">
                 <h3>    Lier Evenement / Type de produit    </h3>
             </div>
@@ -123,27 +143,8 @@ function search($array, $key, $value) {
                 </form>
             </div>
         </div>
-        <div class="col-md-3 smallvid col-md-offset-1">
-            <div class="smallvid-title">
-                <h3>    Supprimer un Evenement    </h3>
-            </div>
-            <div class="smallvid-player" style="height: auto;">
-                <form method="POST" action="Event.php" role="form">
-                    <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
-                        <div class="form-bloc">
-                            <select class="form-control" name="id">
-                                <?php foreach ($events as $value) { ?> 
-                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
-                                <?php } ?>
-                            </select>
-                            <input name="type" value="delete" class="hidden"/>
-                            <button type="submit" class="btn loginbtn btn-default center-block">Envoyer</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-3 smallvid col-md-offset-1">
+        
+        <div class="col-md-4 smallvid col-md-offset-0">
             <div class="smallvid-title">
                 <h3>    Supprimer une Liaison (Type/Event)    </h3>
             </div>

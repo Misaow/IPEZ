@@ -56,7 +56,7 @@ function search($array, $key, $value) {
 
 <div class="container maincontent">
     <div class="row">
-        <div class="col-md-5 smallvid">
+        <div class="col-md-4 smallvid">
             <div class="smallvid-title">
                 <h3>    Ajouter un Produit    </h3>
             </div>
@@ -81,7 +81,27 @@ function search($array, $key, $value) {
                 </form>
             </div>
         </div>
-        <div class="col-md-5 smallvid col-md-offset-2">
+        <div class="col-md-4 smallvid col-md-offset-0">
+            <div class="smallvid-title">
+                <h3>    Supprimer un Produit    </h3>
+            </div>
+            <div class="smallvid-player" style="height: auto;">
+                <form method="POST" action="Produit.php" role="form">
+                    <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
+                        <div class="form-bloc">
+                            <select class="form-control" name="id">
+                                <?php foreach ($products as $value) { ?> 
+                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <input name="type" value="delete" class="hidden"/>
+                            <button type="submit" class="btn loginbtn btn-default center-block">Supprimer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 smallvid col-md-offset-0">
             <div class="smallvid-title">
                 <h3>    Modifier un Produit    </h3>
             </div>
@@ -112,8 +132,10 @@ function search($array, $key, $value) {
             </div>
         </div>
     </div>
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-3 smallvid">
+    
+       
+            <div class="row" style="margin-top: 20px;">
+        <div class="col-md-4 smallvid">
             <div class="smallvid-title">
                 <h3>    Ajouter Type de produit    </h3>
             </div>
@@ -131,28 +153,7 @@ function search($array, $key, $value) {
                 </form>
             </div>
         </div>
-        <div class="row" >
-            <div class="col-md-3 smallvid col-md-offset-1">
-                <div class="smallvid-title">
-                    <h3>    Supprimer un Produit    </h3>
-                </div>
-                <div class="smallvid-player" style="height: auto;">
-                    <form method="POST" action="Produit.php" role="form">
-                        <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
-                            <div class="form-bloc">
-                                <select class="form-control" name="id">
-                                    <?php foreach ($products as $value) { ?> 
-                                        <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
-                                    <?php } ?>
-                                </select>
-                                <input name="type" value="delete" class="hidden"/>
-                                <button type="submit" class="btn loginbtn btn-default center-block">Supprimer</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-3 smallvid col-md-offset-1">
+            <div class="col-md-4 smallvid col-md-offset-0">
                 <div class="smallvid-title">
                     <h3>    Supprimer un Type Produit    </h3>
                 </div>
@@ -175,8 +176,8 @@ function search($array, $key, $value) {
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
+  
+    <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
         <div class="col-md-4 smallvid col-md-offset-0">
             <div class="smallvid-title">
                 <h3>    Edition des ventes lors des soirées    </h3>
@@ -203,7 +204,7 @@ function search($array, $key, $value) {
                 </form>
             </div>
         </div>
-<div class="col-md-4 smallvid col-md-offset-4">
+        <div class="col-md-4 smallvid col-md-offset-0">
             <div class="smallvid-title">
                 <h3>    Suppression des ventes lors des soirées    </h3>
             </div>
@@ -212,17 +213,19 @@ function search($array, $key, $value) {
                     <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
                         <div class="form-bloc">
                             <select class="form-control" name="idevent" required>
-                                <?php foreach ($historique as $value) { 
+                                <?php
+                                foreach ($historique as $value) {
                                     $nomproduit = search($products, "id", $value['TProduit_id']);
                                     $nomproduit = !empty($nomproduit) ? $nomproduit : "";
                                     $nomvente = search($events, "id", $value['TEvent_id']);
                                     $nomvente = !empty($nomvente) ? $nomvente : "";
-                                    var_dump($nomproduit);                                    var_dump($nomvente);
-                                    if(!empty($nomvente) && !empty($nomproduit)){
-                                        
-                                    ?> 
-                                <option value="<?php echo $value['id'] ?>"><?php echo 'Vente: '.$nomvente[0]['nom'].' / Produit: '.$nomproduit[0]['nom'].'/Vente:'.$value['nb_vente'] ?></option>
-                                <?php }} ?>
+                                    var_dump($nomproduit);
+                                    var_dump($nomvente);
+                                    if (!empty($nomvente) && !empty($nomproduit)) {
+                                        ?> 
+                                        <option value="<?php echo $value['id'] ?>"><?php echo 'Vente: ' . $nomvente[0]['nom'] . ' / Produit: ' . $nomproduit[0]['nom'] . '/Vente:' . $value['nb_vente'] ?></option>
+    <?php }
+} ?>
                             </select>
                             <input name="type" value="deletevente" class="hidden"/>
                             <button type="submit" class="btn loginbtn btn-default center-block">Supprimer</button>
