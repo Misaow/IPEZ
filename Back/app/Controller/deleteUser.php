@@ -3,9 +3,10 @@
 $id = isset($_POST["id"]) ? $_POST["id"] : "";
 
  $userdelete = false;
-if(!empty($id) && (\app\core\User::isAdmin($_SESSION['id'], $_SESSION['login']) )){
+if(!empty($id)){
   
    $user = new \app\core\User();
-   $user->deleteUser($id);
+   $user->setTable("tadmin");
+
    $userdelete = true;
 }
