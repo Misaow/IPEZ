@@ -16,8 +16,11 @@ if (!empty($_POST['type'])) {
         include CONTROLLER_DIRECTORY . '/deleteTypeProduit.php';
     } else if ($_POST['type'] == "editvente") {
         include CONTROLLER_DIRECTORY . '/addHistoriqueVente.php';
+    } else if ($_POST['type'] == "deletevente") {
+        include CONTROLLER_DIRECTORY . '/deleteHistoriqueVente.php';
     }
 }
+include CONTROLLER_DIRECTORY . '/getHistoriqueEvent.php';
 include CONTROLLER_DIRECTORY . '/displayTypeProduit.php';
 include CONTROLLER_DIRECTORY . '/displayEvent.php';
 include CONTROLLER_DIRECTORY . '/displayProduct.php';
@@ -209,12 +212,20 @@ function search($array, $key, $value) {
                     <div class="row" id="form-bloc" style="max-width:400px; margin: 0px auto;margin-top: 5px;">
                         <div class="form-bloc">
                             <select class="form-control" name="idevent" required>
-                                <?php foreach ($events as $value) { ?> 
-                                    <option value="<?php echo $value['id'] ?>"><?php echo $value['nom'] ?></option>
-                                <?php } ?>
+                                <?php foreach ($historique as $value) { 
+                                    $nomproduit = search($products, "id", $value['TProduit_id']);
+                                    $nomproduit = !empty($nomproduit) ? $nomproduit : "";
+                                    $nomvente = search($events, "id", $value['TEvent_id']);
+                                    $nomvente = !empty($nomvente) ? $nomvente : "";
+                                    var_dump($nomproduit);                                    var_dump($nomvente);
+                                    if(!empty($nomvente) && !empty($nomproduit)){
+                                        
+                                    ?> 
+                                <option value="<?php echo $value['id'] ?>"><?php echo 'Vente: '.$nomvente[0]['nom'].' / Produit: '.$nomproduit[0]['nom'].'/Vente:'.$value['nb_vente'] ?></option>
+                                <?php }} ?>
                             </select>
                             <input name="type" value="deletevente" class="hidden"/>
-                            <button type="submit" class="btn loginbtn btn-default center-block">Ajouter</button>
+                            <button type="submit" class="btn loginbtn btn-default center-block">Supprimer</button>
                         </div>
                     </div>
                 </form>

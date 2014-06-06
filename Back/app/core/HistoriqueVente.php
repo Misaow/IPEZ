@@ -26,13 +26,17 @@ class HistoriqueVente {
     }
     
     public function getall() {
-        $result = $this->db->select("tparticipation","*");
+        $result = $this->db->select("thistoriquevente","*");
+        $result = $this->db->getResult();
         return $result;
     }
     public function getId() {
         return $this->id;
     }
-
+    public function setId($id){
+        $this->id = $id;
+        return $this;
+    }
     public function getTEvent_id() {
         return $this->TEvent_id;
     }
@@ -98,7 +102,7 @@ class HistoriqueVente {
  */
     public function deleteHistoriqueVente($id) {
         
-   return $this->db->delete('tproduit', 'id='.$id);
+    return $this->db->delete('thistoriquevente', 'id='.$id);
         
     }
     
