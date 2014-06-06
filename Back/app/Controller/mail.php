@@ -7,6 +7,7 @@ $listparticipant = new app\core\Participation();
 $result = $listparticipant->getListParticipant($TEvent_id);
 
 $i = 0;
+
 foreach ($result as $value) {
 
     $to = $result[$i]['mail'] . ' ,' . $to;

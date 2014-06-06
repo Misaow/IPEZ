@@ -14,10 +14,14 @@ class Event {
     private $date;
     private $heure;
     private $lieu;
+    private $max_participants;
     
 
-    
-     /**
+
+
+
+
+    /**
      *
      * @var array
      */
@@ -37,8 +41,22 @@ class Event {
     }
     
     
-
     /**
+     * retourne le nombre max de participant accepté pour l evenement
+     * @return type
+     */
+    public function getMax_participants() {
+        return $this->max_participants;
+    }
+/**
+ * Update a setMax
+ * @param type $max_participants
+ */
+    public function setMax_participants($max_participants) {
+        $this->max_participants = $max_participants;
+    }
+
+        /**
      * Initialise les valeurs de l'event
      * @param array $donnees
      */
@@ -113,6 +131,17 @@ class Event {
         public function getEventById($id){
         $this->db = new \app\core\Database();
         $this->db->select('tevent', '*', null, 'id='.$id);
+        return $this->db->getResult();
+        
+    }
+            /**
+     * Return Nbr Max participant by id
+     * @param type $id
+     * @return type
+     */
+        public function getMaxParticipantsById($id){
+        $this->db = new \app\core\Database();
+        $this->db->select('tevent', 'max_participants', null, 'id='.$id);
         return $this->db->getResult();
         
     }

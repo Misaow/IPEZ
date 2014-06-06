@@ -35,7 +35,7 @@ include '../Autoloader.php';
                         <li class="active"><a href="index.php">Accueil</a></li>
                         <li><a href="Event.php">Gestion des Events</a></li>
                         <li><a href="Participant.php">Listing</a></li>
-                        <li><a href="">Envoi de Confirmation</a></li>
+                        <li><a href="envoiconfirmation.php">Envoi de Confirmation</a></li>
                         <li><a href="Produit.php">Produits</a></li>
                         <li><a href="utilisateur.php">Gestion Utilisateurs</a></li>
                     </ul>
